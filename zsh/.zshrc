@@ -3,7 +3,9 @@
 # -------------------------------------------------------
 # Load CachyOS custom Zsh config (if available)
 # Uncomment if you want to source the default CachyOS config first
-#source /usr/share/cachyos-zsh-config/cachyos-config.zsh
+
+# source /usr/share/cachyos-zsh-config/cachyos-config.zsh
+
 # -------------------------------------------------------
 
 
@@ -19,17 +21,12 @@
 
 
 # -------------------------------------------------------
-# Initialize Oh-My-Zsh framework
-# -------------------------------------------------------
-source $ZSH/oh-my-zsh.sh
-
-
-# -------------------------------------------------------
 # Load custom modular configs from ~/.config/zsh/config.d
 # -------------------------------------------------------
 for conf in "$HOME/.config/zsh/config.d/"*.zsh; do
   source "${conf}"
 done
+
 
 # -------------------------------------------------------
 # FZF key bindings: CTRL-R for fuzzy history search

@@ -1,3 +1,7 @@
+# -----------------------------------------------------
+# Aliases
+# -----------------------------------------------------
+
 # -------------------------------
 # Navigation Shortcuts
 # -------------------------------
@@ -15,6 +19,7 @@ alias 4='cd -4'                    # Go to directory from 4 steps back
 alias 5='cd -5'                    # Go to directory from 5 steps back
 alias path='echo -e ${PATH//:/\\n}' # Show PATH entries line-by-line
 
+
 # -------------------------------
 # General Commands
 # -------------------------------
@@ -22,12 +27,15 @@ alias c='clear'                    # Clear terminal screen
 alias grep='grep --color=auto'     # Colorize grep output for better visibility
 alias please='sudo $(history -p !!)' # Rerun last command with sudo
 
+
 # -------------------------------
 # Bookmarks
 # -------------------------------
+alias conf='cd ~/.config && ls -lA'
 alias dl='cd ~/Downloads && ls -lA'
 alias doc='cd ~/Documents && ls -lA'
 alias dot='cd ~/Dotfiles && ls -lA'
+
 
 # -------------------------------
 # File Management
@@ -45,6 +53,7 @@ alias sha256='sha256sum'           # Compute SHA-256 checksum
 alias untar='tar -xvf'             # Extract tar archives
 alias untar='tar -cvf'             # Create tar archives
 
+
 # -------------------------------
 # Package Management (Pacman)
 # -------------------------------
@@ -56,6 +65,7 @@ alias cleanacache="sudo pacman -Scc"  # Clear pacman cache
 alias fixpacman="sudo rm /var/lib/pacman/db.lck"  # Fix pacman lock issue
 alias cleanup="sudo pacman -Rsn $(pacman -Qtdq)"  # Cleanup orphaned packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"  # Show recently installed packages with timestamps
+
 
 # -------------------------------
 # Git Shortcuts
@@ -77,6 +87,7 @@ alias gd='git diff'                # Show changes
 alias gds='git diff --staged'      # Show staged changes
 alias gundo='git reset --soft HEAD~1' # Undo last commit but keep changes staged
 
+
 # -------------------------------
 # System Monitoring
 # -------------------------------
@@ -86,6 +97,7 @@ alias cpuinfo='lscpu'              # Show CPU details
 alias cpu='top -o %CPU'            # Top sorted by CPU usage
 alias mem='top -o %MEM'            # Top sorted by memory usage
 alias jctl="journalctl -p 3 -xb"   # Get error messages from journalctl
+
 
 # -------------------------------
 # Networking
