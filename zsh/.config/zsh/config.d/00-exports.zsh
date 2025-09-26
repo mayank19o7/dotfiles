@@ -24,6 +24,9 @@ export LESS_TERMCAP_se=$'\e[0m'         # End standout mode
 export LESS_TERMCAP_us=$'\e[4;35m'   # Start underline mode
 export LESS_TERMCAP_ue=$'\e[0m'      # End underline mode
 
+# Locale.
+export LANG="en_US.UTF-8"
+export LANGUAGE="en_US.UTF-8"
 
 # -------------------------------------------------------
 # Initialize Oh-My-Zsh framework
