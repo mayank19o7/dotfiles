@@ -31,10 +31,10 @@ alias please='sudo $(history -p !!)' # Rerun last command with sudo
 # -------------------------------
 # Bookmarks
 # -------------------------------
-alias conf='cd ~/.config && ls -lA'
-alias dl='cd ~/Downloads && ls -lA'
-alias doc='cd ~/Documents && ls -lA'
-alias dot='cd ~/Dotfiles && ls -lA'
+alias conf='cd ~/.config && ls'
+alias dl='cd ~/Downloads && ls'
+alias doc='cd ~/Documents && ls'
+alias dot='cd ~/Dotfiles && ls'
 
 
 # -------------------------------
@@ -50,8 +50,8 @@ alias mv='mv -i'                   # Prompt before overwriting while moving file
 alias cp='cp -i'                   # Prompt before overwriting while copying files
 alias mkdir='mkdir -pv'            # Make directories, show progress, create parents as needed
 alias sha256='sha256sum'           # Compute SHA-256 checksum
-alias untar='tar -xvf'             # Extract tar archives
-alias untar='tar -cvf'             # Create tar archives
+alias xtar='tar -xzvf'             # Extract tar archives
+alias ctar='tar -czvf'             # Create tar archives
 
 
 # -------------------------------
@@ -60,10 +60,10 @@ alias untar='tar -cvf'             # Create tar archives
 alias search='sudo pacman -Ss'     # Search for a package
 alias add='sudo pacman -S'         # Install a package
 alias update='sudo pacman -Syu'    # Update system (sync + upgrade)
-alias delete='sudo pacman -Rsn'    # Remove a package and unused dependencies
-alias cleanacache="sudo pacman -Scc"  # Clear pacman cache
+alias delete='sudo pacman -Rns'    # Remove a package and unused dependencies
+alias cleancache="sudo pacman -Scc"  # Clear pacman cache
 alias fixpacman="sudo rm /var/lib/pacman/db.lck"  # Fix pacman lock issue
-alias cleanup="sudo pacman -Rsn $(pacman -Qtdq)"  # Cleanup orphaned packages
+alias cleanup="sudo pacman -Rns \$(pacman -Qtdq)"  # Cleanup orphaned packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"  # Show recently installed packages with timestamps
 
 
