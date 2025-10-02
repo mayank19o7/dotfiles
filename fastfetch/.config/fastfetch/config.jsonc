@@ -11,7 +11,7 @@
             "width":40
         },
         "color":{
-            "keys":"#82DCCC"            
+            "keys":"#82DCCC"
         }
     },
     "modules":[
@@ -218,10 +218,6 @@
         {
             "type":"sound",
             "key":"{#separator}│ {#keys}  Sound"
-        },
-        {
-            "type":"weather",
-            "key":"{#separator}│ {#keys}󰼰  Weather"
         },
         {
             "type":"custom",

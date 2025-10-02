@@ -5,7 +5,7 @@
 # Path to Oh-My-Zsh installation directory
 export ZSH="/usr/share/oh-my-zsh"
 
-# HISTCONTROL: Ignore commands that start with spaces and duplicate commands 
+# HISTCONTROL: Ignore commands that start with spaces and duplicate commands
 export HISTCONTROL=ignoreboth
 
 # HISTIGNORE: Don't add these commands to the history file to avoid clutter
