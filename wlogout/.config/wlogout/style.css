@@ -1,0 +1,99 @@
+/*
+          _                         _
+__      _| | ___   __ _  ___  _   _| |_
+\ \ /\ / / |/ _ \ / _` |/ _ \| | | | __|
+ \ V  V /| | (_) | (_| | (_) | |_| | |_
+  \_/\_/ |_|\___/ \__, |\___/ \__,_|\__|
+                  |___/
+-----------------------------------------------------
+*/
+
+
+/*
+ * -----------------------------------------------------
+ * Import Pywal colors
+ * -----------------------------------------------------
+*/
+/* @import '../../.cache/wal/colors-wlogout.css'; */
+
+/*
+ * -----------------------------------------------------
+ * General
+ * -----------------------------------------------------
+*/
+* {
+    font-family: "JetBrainsMono Nerd", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+	background-image: none;
+	transition: 20ms;
+	box-shadow: none;
+}
+
+window {
+	/* background: url("../../.cache/blurred_wallpaper.png");*/
+  	background-color: alpha(#000000, 0.3);
+	font-size: 16pt;
+	animation: fadeIn 0.2s ease-in-out;
+}
+
+button {
+	color: alpha(white,0.9);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 25%;
+
+	background-color: alpha(#000000,0.2);
+	border: none;
+    border-width: 0px;
+    border-radius: 10px;
+
+	animation: gradient_f 20s ease-in infinite;
+	transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+button:focus,
+button:hover {
+	background-color: alpha(#21664E,1);
+    background-size: 30%;
+}
+
+/* Adjust the size of the icon or content inside the button */
+button span {
+    font-size: 1.2em; /* Increase the font size */
+}
+
+
+/*
+ * -----------------------------------------------------
+ * Buttons
+ * -----------------------------------------------------
+*/
+
+#lock {
+	background-image: image(url("icons/lock.png"));
+	margin: 200px 10px 10px 550px;
+}
+
+#logout {
+	background-image: image(url("icons/logout.png"));
+	margin: 200px 10px 10px 10px;
+}
+
+#suspend {
+	background-image: image(url("icons/suspend.png"));
+	margin: 200px 550px 10px 10px;
+}
+
+#hibernate {
+	background-image: image(url("icons/hibernate.png"));
+	margin: 10px 10px 200px 550px;
+}
+
+#shutdown {
+	background-image: image(url("icons/shutdown.png"));
+	margin: 10px 10px 200px 0px;
+}
+
+#reboot {
+	background-image: image(url("icons/reboot.png"));
+	margin: 10px 550px 200px 10px;
+}
