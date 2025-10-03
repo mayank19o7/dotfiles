@@ -7,7 +7,7 @@
     "autoindent":true,
     "autosave":false,
     "colorcolumn":0,
-    "colorscheme":"monokai-dark-blur",
+    "colorscheme":"catppuccin-macchiato-transparent",
     "cursorline":true,
     "eofnewline":true,
     "fastdirty":true,
