@@ -16,17 +16,22 @@ This guide explains how to install and apply a custom theme for the rEFInd boot 
 
 3. **Copy theme files**
    - Download or clone the theme repository.
+   - Extract the theme from tar.gz using below command.
+   
+   ```bash
+   tar -xvf <theme-name>.tar.gz
+   ```
    - Copy the entire theme folder into the `themes` directory.
 
    ```bash
-   sudo cp -r path-to-theme /boot/EFI/refind/themes/
+   sudo cp -r theme-folder /boot/EFI/refind/themes/
    ```
 
 4. **Enable the theme**
    - Open the `refind.conf` file in the rEFInd directory.
 
    ```bash   
-   sudo nano /boot/EFI/refind/refind.conf
+   sudo micro /boot/EFI/refind/refind.conf
    ```
 
    - Add the following line at the end, adjusting the theme folder and `.conf` file name as needed:
