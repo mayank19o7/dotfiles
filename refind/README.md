@@ -1,52 +1,86 @@
-# rEFInd Theme Installation
+# rEFInd — Theme Installation & Disabling Text Mode
 
-This guide explains how to install and apply a custom theme for the rEFInd boot manager.
+This guide walks you through installing and enabling a custom theme for the **rEFInd boot manager**, as well as disabling text mode for a graphical boot menu.
 
-## Installation Steps
+---
 
-1. **Locate rEFInd directory**
-   - Usually found at `/boot/efi/EFI/refind` or `/boot/EFI/refind`.
+## 🧭 Installation Steps
 
-2. **Create themes folder**
-   - Inside the rEFInd directory, create a folder named `themes` if it does not exist.
+### 1. Locate the rEFInd Directory
 
-   ```bash
-   sudo mkdir -p /boot/EFI/refind/themes
-   ```
+rEFInd is typically installed in one of the following paths:
 
-3. **Copy theme files**
-   - Download or clone the theme repository.
-   - Extract the theme from tar.gz using below command.
-   
+* `/boot/efi/EFI/refind`
+* `/boot/EFI/refind`
+
+---
+
+### 2. Create a `themes` Folder
+
+If a `themes` folder does not exist, create one inside the rEFInd directory:
+
+```bash
+sudo mkdir -p /boot/EFI/refind/themes
+```
+
+---
+
+### 3. Copy Theme Files
+
+1. Download or clone your desired rEFInd theme repository.
+
+2. Extract the downloaded archive (if applicable):
+
    ```bash
    tar -xvf <theme-name>.tar.gz
    ```
-   - Copy the entire theme folder into the `themes` directory.
+
+3. Copy the extracted theme folder into the `themes` directory:
 
    ```bash
    sudo cp -r theme-folder /boot/EFI/refind/themes/
    ```
 
-4. **Enable the theme**
-   - Open the `refind.conf` file in the rEFInd directory.
+---
 
-   ```bash   
-   sudo micro /boot/EFI/refind/refind.conf
-   ```
+### 4. Modify `refind.conf`
 
-   - Add the following line at the end, adjusting the theme folder and `.conf` file name as needed:
+#### Enable the Theme
 
-   ```
-   include themes/theme-folder-name/theme.conf
-   ```
+Open the main configuration file:
 
-5. **Save changes and reboot**
-   - Save the configuration file and reboot the system.
-   - The selected theme should appear on the rEFInd boot screen.
+```bash
+sudo micro /boot/EFI/refind/refind.conf
+```
 
-## Notes
+Add the following line at the end of the file, replacing folder and file names as necessary:
 
-- Ensure the theme folder and `.conf` file names match exactly.
-- Delete or comment out any other theme includes in `refind.conf` to avoid conflicts.
-- If the theme does not apply, verify you are editing the active rEFInd installation's `refind.conf`.
-- Some themes may require additional setup; refer to the theme's documentation if available.
+```
+include themes/theme-folder-name/theme.conf
+```
+
+#### Disable Text Mode
+
+To use graphical mode instead of text, locate and modify the following line in `refind.conf`:
+
+```conf
+use_graphics_for windows,linux
+```
+
+> 💡 *Alternatively, you can replace your existing `refind.conf` with the version provided in this dotfile repository.*
+
+---
+
+### 5. Save & Reboot
+
+Save your changes, then reboot the system.
+The new theme should now appear on the rEFInd boot screen.
+
+---
+
+## 📝 Notes
+
+* Ensure the **theme folder** and `.conf` file names match exactly.
+* Remove or comment out other `include` lines for themes to prevent conflicts.
+* If the theme does not load, verify you edited the correct `refind.conf` file used by your active rEFInd installation.
+* Some themes may require additional setup — check the theme’s documentation for details.
