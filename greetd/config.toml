@@ -1,0 +1,28 @@
+#
+#                                      - mayank19o7
+#                               o  ooo.   
+#                               8  8  `8. 
+#  .oPYo. oPYo. .oPYo. .oPYo.  o8P 8   `8 
+#  8    8 8  `' 8oooo8 8oooo8   8  8    8 
+#  8    8 8     8.     8.       8  8   .P 
+#  `YooP8 8     `Yooo' `Yooo'   8  8ooo'  
+# ::....8 ..:::::.....::.....:::..:.....:::::::::::
+# :::ooP'.:::::::::::::::::::::::::::::::::::::::::
+# :::...:::::::::::::::::::::::::::::::::::::::::::
+# Configuration file for the greetD display manager
+# -------------------------------------------------
+
+[terminal]
+# The virtual terminal (VT) number where the greeter will be displayed.
+# Can be "next", "current", or a specific number (e.g., 1).
+vt = 1
+
+# The default session block defines what greeter or login interface to start.
+[default_session]
+
+# Launch the TUI greeter (tuigreet) with custom theme and auto-start Hyprland.
+command = "tuigreet --time --remember --remember-session --asterisks --window-padding 1 --container-padding 2 --width 50 --greeting 'Welcome to Hyprland !!' --theme 'border=cyan;text=grey;prompt=cyan;time=grey;action=168;button=232;container=black;input=grey'  --cmd Hyprland"
+
+# Specifies the user account under which the greeter will run.
+# Typically, this should be a non-privileged user like "greeter".
+user = "greeter"
