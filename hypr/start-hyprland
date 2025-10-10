@@ -1,0 +1,8 @@
+#!/bin/bash
+LOGFILE="$HOME/.local/share/hyprland.log"
+
+# Optionally clear old log
+: > "$LOGFILE"
+
+# Start Hyprland and log both stdout and stderr
+exec Hyprland >>"$LOGFILE" 2>&1
