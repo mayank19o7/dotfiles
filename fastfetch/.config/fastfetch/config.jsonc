@@ -1,227 +1,227 @@
 {
-    "$schema":"https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-    "logo":{
-    	"color":{
-    		"1":"0"
-    	}
-    },
-    "display":{
-        "separator":"",
-        "key":{
-            "width":40
-        },
-        "color":{
-            "keys":"#82DCCC"
-        }
-    },
-    "modules":[
-        {
-            "type":"title",
-            "format":"╭─────── {#keys}  : {#}{user-name} {#keys}{at-symbol-colored} {host-name}{#} ───────────────────────────────────────────────────────────────╮"
-        },
-        {
-            "type":"custom",
-            "format":"{#1}│"
-        },
-        {
-            "type":"host",
-            "key":"{#separator}│ {#keys}  Host",
-            "format":"{5} {1} : {2}"
-        },
-        {
-            "type":"os",
-            "key":"{#separator}│ {#keys}󰣇  OS"
-        },
-        {
-            "type":"board",
-            "key":"{#separator}│ {#keys}  Board"
-        },
-        {
-            "type":"bios",
-            "key":"{#separator}│ {#keys}  Bios"
-        },
-        {
-            "type":"kernel",
-            "key":"{#separator}│ {#keys}󰚄  Kernel"
-        },
-        {
-            "type":"uptime",
-            "key":"{#separator}│ {#keys}󱫐  Uptime"
-        },
-        {
-            "type":"processes",
-            "key":"{#separator}│ {#keys}  Processes"
-        },
-        {
-            "type":"packages",
-            "key":"{#separator}│ {#keys}󰏗  Packages"
-        },
-        {
-            "type":"shell",
-            "key":"{#separator}│ {#keys}  Shell"
-        },
-        {
-            "type":"custom",
-            "format":"{#1}│"
-        },
-        {
-            "type":"custom",
-            "format":"├─────── \u001b[31mDisplay and Graphics\u001b[37m ──────────────────────────────────────────────────────────────────┤"
-        },
-        {
-            "type":"custom",
-            "format":"{#1}│"
-        },
-        {
-            "type":"display",
-            "key":"{#separator}│ {#keys}󰍺  Displays [{name}]"
-        },
-        {
-            "type":"lm",
-            "key":"{#separator}│ {#keys}󰍂  Login Manager"
-        },
-        {
-            "type":"wm",
-            "key":"{#separator}│ {#keys}󱂬  Window Manager"
-        },
-        {
-            "type":"theme",
-            "key":"{#separator}│ {#keys}󰉼  Theme"
-        },
-        {
-            "type":"font",
-            "key":"{#separator}│ {#keys}  Font"
-        },
-        {
-            "type":"cursor",
-            "key":"{#separator}│ {#keys}󰇀  Cursor"
-        },
-        {
-            "type":"terminal",
-            "key":"{#separator}│ {#keys}  Terminal"
-        },
-        {
-            "type":"terminalfont",
-            "key":"{#separator}│ {#keys}  Terminal Font"
-        },
-        {
-            "type":"terminalSize",
-            "key":"{#separator}│ {#keys}  Terminal Size"
-        },
-        {
-            "type":"terminalTheme",
-            "key":"{#separator}│ {#keys}  Terminal Theme"
-        },
-        {
-            "type":"custom",
-            "format":"{#1}│"
-        },
-        {
-            "type":"custom",
-            "format":"├─────── \u001b[33mHardware Information\u001b[37m ──────────────────────────────────────────────────────────────────┤"
-        },
-        {
-            "type":"custom",
-            "format":"{#1}│"
-        },
-        {
-            "type":"cpu",
-            "key":"{#separator}│ {#keys}  CPU",
-            "format":""
-        },
-        {
-            "type":"gpu",
-            "key":"{#separator}│ {#keys}  GPU {0}"
-        },
-        {
-            "type":"memory",
-            "key":"{#separator}│ {#keys}  Memory"
-        },
-        {
-            "type":"swap",
-            "key":"{#separator}│ {#keys}  Swap"
-        },
-        {
-            "type":"disk",
-            "key":"{#separator}│ {#keys}  Disk"
-        },
-        {
-            "type":"physicaldisk",
-            "key":"{#separator}│ {#keys}󰋊  Physical Disk {0}",
-            "format": "{name} - {size}"
-        },
-        {
-            "type":"diskio",
-            "key":"{#separator}│ {#keys}  Disk IO {0}"
-        },
-        {
-            "type":"battery",
-            "key":"{#separator}│ {#keys}  Battery"
-        },
-        {
-            "type":"custom",
-            "format":"{#1}│"
-        },
-        {
-            "type":"custom",
-            "format":"├─────── \u001b[32mNetwork\u001b[37m ───────────────────────────────────────────────────────────────────────────────┤"
-        },
-        {
-            "type":"custom",
-            "format":"{#1}│"
-        },
-        {
-            "type":"publicip",
-            "key":"{#separator}│ {#keys}󰩠  Public IP"
-        },
-        {
-            "type":"localip",
-            "key":"{#separator}│ {#keys}󱦂  Local IP"
-        },
-        {
-            "type":"wifi",
-            "key":"{#separator}│ {#keys}󱚽  WiFi"
-        },
-        {
-            "type":"networkio",
-            "key":"{#separator}│ {#keys}  Network"
-        },
-        {
-            "type":"custom",
-            "format":"{#1}│"
-        },
-        {
-            "type":"custom",
-            "format":"├─────── \u001b[34mMisc / Extra\u001b[37m ──────────────────────────────────────────────────────────────────────────┤"
-        },
-        {
-            "type":"custom",
-            "format":"{#1}│"
-        },
-        {
-            "type":"date",
-            "key":"{#separator}│ {#keys}  Date"
-        },
-        {
-            "type":"locale",
-            "key":"{#separator}│ {#keys}󰜛  Locale"
-        },
-        {
-            "type":"gpu",
-            "key":"{#separator}│ {#keys}  GPU Driver {0}",
-            "format":"{3}"
-        },
-        {
-            "type":"opencl",
-            "key":"{#separator}│ {#keys}  OpenCL"
-        },
-        {
-            "type":"sound",
-            "key":"{#separator}│ {#keys}  Sound"
-        },
-        {
-            "type":"custom",
-            "format":"╰───────────────────────────────────────────────────────────────────────────────────────────────╯"
-        },
-    ]
+	"$schema":"https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+	"logo":{
+		"color":{
+			"1":"0"
+		}
+	},
+	"display":{
+		"separator":"",
+		"key":{
+			"width":40
+		},
+		"color":{
+			"keys":"#82DCCC"
+		}
+	},
+	"modules":[
+		{
+			"type":"title",
+			"format":"╭─────── {#keys}  : {#}{user-name} {#keys}{at-symbol-colored} {host-name}{#} ───────────────────────────────────────────────────────────────╮"
+		},
+		{
+			"type":"custom",
+			"format":"{#1}│"
+		},
+		{
+			"type":"host",
+			"key":"{#separator}│ {#keys}  Host",
+			"format":"{5} {1} : {2}"
+		},
+		{
+			"type":"os",
+			"key":"{#separator}│ {#keys}󰣇  OS"
+		},
+		{
+			"type":"board",
+			"key":"{#separator}│ {#keys}  Board"
+		},
+		{
+			"type":"bios",
+			"key":"{#separator}│ {#keys}  Bios"
+		},
+		{
+			"type":"kernel",
+			"key":"{#separator}│ {#keys}󰚄  Kernel"
+		},
+		{
+			"type":"uptime",
+			"key":"{#separator}│ {#keys}󱫐  Uptime"
+		},
+		{
+			"type":"processes",
+			"key":"{#separator}│ {#keys}  Processes"
+		},
+		{
+			"type":"packages",
+			"key":"{#separator}│ {#keys}󰏗  Packages"
+		},
+		{
+			"type":"shell",
+			"key":"{#separator}│ {#keys}  Shell"
+		},
+		{
+			"type":"custom",
+			"format":"{#1}│"
+		},
+		{
+			"type":"custom",
+			"format":"├─────── \u001b[31mDisplay and Graphics\u001b[37m ──────────────────────────────────────────────────────────────────┤"
+		},
+		{
+			"type":"custom",
+			"format":"{#1}│"
+		},
+		{
+			"type":"display",
+			"key":"{#separator}│ {#keys}󰍺  Displays [{name}]"
+		},
+		{
+			"type":"lm",
+			"key":"{#separator}│ {#keys}󰍂  Login Manager"
+		},
+		{
+			"type":"wm",
+			"key":"{#separator}│ {#keys}󱂬  Window Manager"
+		},
+		{
+			"type":"theme",
+			"key":"{#separator}│ {#keys}󰉼  Theme"
+		},
+		{
+			"type":"font",
+			"key":"{#separator}│ {#keys}  Font"
+		},
+		{
+			"type":"cursor",
+			"key":"{#separator}│ {#keys}󰇀  Cursor"
+		},
+		{
+			"type":"terminal",
+			"key":"{#separator}│ {#keys}  Terminal"
+		},
+		{
+			"type":"terminalfont",
+			"key":"{#separator}│ {#keys}  Terminal Font"
+		},
+		{
+			"type":"terminalSize",
+			"key":"{#separator}│ {#keys}  Terminal Size"
+		},
+		{
+			"type":"terminalTheme",
+			"key":"{#separator}│ {#keys}  Terminal Theme"
+		},
+		{
+			"type":"custom",
+			"format":"{#1}│"
+		},
+		{
+			"type":"custom",
+			"format":"├─────── \u001b[33mHardware Information\u001b[37m ──────────────────────────────────────────────────────────────────┤"
+		},
+		{
+			"type":"custom",
+			"format":"{#1}│"
+		},
+		{
+			"type":"cpu",
+			"key":"{#separator}│ {#keys}  CPU",
+			"format":""
+		},
+		{
+			"type":"gpu",
+			"key":"{#separator}│ {#keys}  GPU {0}"
+		},
+		{
+			"type":"memory",
+			"key":"{#separator}│ {#keys}  Memory"
+		},
+		{
+			"type":"swap",
+			"key":"{#separator}│ {#keys}  Swap"
+		},
+		{
+			"type":"disk",
+			"key":"{#separator}│ {#keys}  Disk"
+		},
+		{
+			"type":"physicaldisk",
+			"key":"{#separator}│ {#keys}󰋊  Physical Disk {0}",
+			"format": "{name} - {size}"
+		},
+		{
+			"type":"diskio",
+			"key":"{#separator}│ {#keys}  Disk IO {0}"
+		},
+		{
+			"type":"battery",
+			"key":"{#separator}│ {#keys}  Battery"
+		},
+		{
+			"type":"custom",
+			"format":"{#1}│"
+		},
+		{
+			"type":"custom",
+			"format":"├─────── \u001b[32mNetwork\u001b[37m ───────────────────────────────────────────────────────────────────────────────┤"
+		},
+		{
+			"type":"custom",
+			"format":"{#1}│"
+		},
+		{
+			"type":"publicip",
+			"key":"{#separator}│ {#keys}󰩠  Public IP"
+		},
+		{
+			"type":"localip",
+			"key":"{#separator}│ {#keys}󱦂  Local IP"
+		},
+		{
+			"type":"wifi",
+			"key":"{#separator}│ {#keys}󱚽  WiFi"
+		},
+		{
+			"type":"networkio",
+			"key":"{#separator}│ {#keys}  Network"
+		},
+		{
+			"type":"custom",
+			"format":"{#1}│"
+		},
+		{
+			"type":"custom",
+			"format":"├─────── \u001b[34mMisc / Extra\u001b[37m ──────────────────────────────────────────────────────────────────────────┤"
+		},
+		{
+			"type":"custom",
+			"format":"{#1}│"
+		},
+		{
+			"type":"date",
+			"key":"{#separator}│ {#keys}  Date"
+		},
+		{
+			"type":"locale",
+			"key":"{#separator}│ {#keys}󰜛  Locale"
+		},
+		{
+			"type":"gpu",
+			"key":"{#separator}│ {#keys}  GPU Driver {0}",
+			"format":"{3}"
+		},
+		{
+			"type":"opencl",
+			"key":"{#separator}│ {#keys}  OpenCL"
+		},
+		{
+			"type":"sound",
+			"key":"{#separator}│ {#keys}  Sound"
+		},
+		{
+			"type":"custom",
+			"format":"╰───────────────────────────────────────────────────────────────────────────────────────────────╯"
+		},
+	]
 }
