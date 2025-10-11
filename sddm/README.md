@@ -1,64 +1,109 @@
-# SDDM Theme Installation Guide
+# 🎨 SDDM Theme Installation & Configuration Guide
 
-This README explains how to install, configure, and customize an SDDM (Simple Desktop Display Manager) theme.
+This guide explains how to **install, configure, and customize** a theme for **SDDM** (Simple Desktop Display Manager).
 
-## Prerequisites
+---
 
-- SDDM must be installed and enabled as the system display manager.
-- Administrative/root privileges are required for theme installation and configuration.
+## ⚙️ Prerequisites
 
-## Download and Extract Theme
+* **SDDM** must be installed and enabled as your system’s display manager.
+* **Root privileges** are required to install or configure system-wide themes.
 
-1. Find and download a desired SDDM theme. Popular sources include KDE Store and Pling.
-2. Extract the theme archive:
-   ```
-   tar -xvf sugar-candy.tar.gz
-   ```
-   Or use a GUI file manager to extract it.
+---
 
-## Install Theme
+## 📦 Download & Extract the Theme
 
-1. Move the extracted theme folder to the correct SDDM theme directory:
-   ```
-   sudo mv theme-folder /usr/share/sddm/themes/
-   ```
-   The theme folder name should match the theme’s internal name.
+1. Browse and download a theme from [KDE Store](https://store.kde.org).
 
-## Configure SDDM
+2. Extract the downloaded archive:
 
-1. Open the SDDM configuration file for editing:
-   - System-wide config: `/etc/sddm.conf`
-   - Alternatively: Create or edit `/etc/sddm.conf.d/theme.conf.user` for per-user override.
-2. Set the theme name:
-   ```
-   [Theme]
-   Current=theme-folder-name
-   ```
-   Save and close the file.
+```bash
+tar -xvf sugar-candy.tar.gz
+```
+or use zsh's extract plugin
+or use your preferred GUI archive manager.
 
-## Restart SDDM
+---
 
-1. To apply changes, restart SDDM:
-   ```
-   sudo systemctl restart sddm
-   ```
-   Or simply reboot the system.
-2. The login screen should display the new theme.
+## 📁 Install the Theme
 
-## Customization
+1. Move the extracted theme folder to the SDDM theme directory:
 
-- To change the theme background, edit `theme.conf` or add a file like `theme.conf.user` in the theme directory. Specify the path to the preferred background image.
-- Additional theme options (such as time format, blur, colors, etc.) can also be edited in the respective configuration files.
+```bash
+sudo mv theme-folder /usr/share/sddm/themes/
+```
+2. Ensure the folder name matches the theme’s internal name (as specified in its `metadata.desktop`).
 
-## Preview Theme (Optional)
+---
 
-- To preview a theme without logging out:
-  ```
-  sddm-greeter --test-mode --theme /usr/share/sddm/themes/theme-folder-name
-  ```
-  This shows a preview of how the theme looks.
+## 🧩 Configure SDDM
 
-## Troubleshooting
+1. Edit the SDDM configuration file:
 
-- Ensure dependencies (e.g., qt5-quickcontrols2, qt5-graphicaleffects and qt5-qtsvg) are installed for certain themes.
-- Verify the theme folder name in `/usr/share/sddm/themes/` matches the name in the configuration file.
+	* **System-wide:** `/etc/sddm.conf`
+	* **User override (recommended):** `/etc/sddm.conf.d/theme.conf.user`
+
+2. Add or modify the `[Theme]` section:
+
+```ini
+[Theme]
+Current=theme-folder-name
+```
+
+3. Save and close the file.
+
+---
+
+## 🔄 Apply the Theme
+
+Restart SDDM to apply the new theme:
+
+```bash
+sudo systemctl restart sddm
+```
+
+Alternatively, reboot your system.
+
+Once restarted, the **new login theme** should be active.
+
+---
+
+## 🎨 Customize the Theme
+
+* **Background:**
+	Edit the theme’s `theme.conf` or create a `theme.conf.user` inside the theme folder:
+
+```ini
+Background=/path/to/your/background.jpg
+```
+* **Other Options:**
+	Themes often support settings like **time format**, **blur strength**, **accent colors**, etc.
+	Check the theme’s `README` or `theme.conf` for available parameters.
+
+---
+
+## 👀 Preview Without Logging Out
+
+Test how a theme looks without restarting SDDM:
+
+```bash
+sddm-greeter --test-mode --theme /usr/share/sddm/themes/theme-folder-name
+```
+
+---
+
+## 🧰 Troubleshooting
+
+* Ensure required **Qt dependencies** are installed:
+
+```bash
+sudo pacman -S qt5-quickcontrols2 qt5-graphicaleffects qt5-svg
+```
+* Verify that:
+	* The theme directory exists under `/usr/share/sddm/themes/`
+	* The `Current` value in the config matches the directory name.
+
+---
+
+✅ **You’re all set!**
+Your system should now display the new, customized SDDM login screen.

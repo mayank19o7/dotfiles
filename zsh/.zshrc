@@ -1,13 +1,13 @@
-# 
+#
 #                                                      - mayank19o7
 #
-# oooooo        8                .oPYo.               d'b  o        
-#     d'        8                8    8               8             
-#    d'  .oPYo. 8oPYo.           8      .oPYo. odYo. o8P  o8 .oPYo. 
-#   d'   Yb..   8    8   ooooo   8      8    8 8' `8  8    8 8    8 
-#  d'      'Yb. 8    8           8    8 8    8 8   8  8    8 8    8 
-# dooooo `YooP' 8    8           `YooP' `YooP' 8   8  8    8 `YooP8 
-# .......:.....:..:::..:::::::::::.....::.....:..::..:..:::..:....8 
+# oooooo        8                .oPYo.               d'b  o
+#     d'        8                8    8               8
+#    d'  .oPYo. 8oPYo.           8      .oPYo. odYo. o8P  o8 .oPYo.
+#   d'   Yb..   8    8   ooooo   8      8    8 8' `8  8    8 8    8
+#  d'      'Yb. 8    8           8    8 8    8 8   8  8    8 8    8
+# dooooo `YooP' 8    8           `YooP' `YooP' 8   8  8    8 `YooP8
+# .......:.....:..:::..:::::::::::.....::.....:..::..:..:::..:....8
 # :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::ooP'.
 # :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::...::
 # ------------------------------------------------------------------
@@ -22,6 +22,7 @@
 [[ -z "${plugins[*]}" ]] && plugins=(
     git
     fzf
+    extract
     zsh-autosuggestions
     zsh-syntax-highlighting
     fast-syntax-highlighting
