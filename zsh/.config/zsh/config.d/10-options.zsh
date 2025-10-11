@@ -20,8 +20,8 @@ setopt SHARE_HISTORY
 
 # -----------------------------------------------------
 # Auto suggest highlight style
-# See https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
 # -----------------------------------------------------
+# See https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=244'  
 
 
