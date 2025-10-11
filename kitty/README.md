@@ -46,7 +46,6 @@ stow -D kitty
 
 * **Themes:** Easily switch between custom themes using `include` directives in `kitty.conf`.
 * **Appearance:**
-
   * `background_opacity: 0.3`
   * `background_blur: 15`
   * `dim_opacity: 0.2`
