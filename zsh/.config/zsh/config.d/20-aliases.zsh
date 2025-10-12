@@ -41,6 +41,7 @@ alias dot='cd ~/Dotfiles && ls'		# Go to Dotfiles, shows list of dir and files
 # File Management
 # -------------------------------
 alias edit='$EDITOR'				# Open files with default editor
+alias bat='bat -A'					# bat command with option to show non-printable characters
 alias l='eza -l --icons=always'		# List files in long format with icons
 alias ls='eza -a --icons=always'	# List all files (including hidden) with icons
 alias ll='eza -al --icons=always'	# List all files in long format with icons
@@ -52,6 +53,7 @@ alias mkdir='mkdir -pv'				# Make directories, show progress, create parents as 
 alias sha256='sha256sum'			# Compute SHA-256 checksum
 alias xtar='tar -xzvf'				# Extract tar archives
 alias ctar='tar -czvf'				# Create tar archives
+alias fzf='fzf --preview "bat -A --color=always --style=numbers --line-range=:500 {}"' # Fuzzy finder Preview
 
 
 # -------------------------------
@@ -86,6 +88,7 @@ alias gstd='git stash drop'				# Delete last stash
 alias gd='git diff'						# Show changes
 alias gds='git diff --staged'			# Show staged changes
 alias gundo='git reset --soft HEAD~1'	# Undo last commit but keep changes staged
+alias lg='lazygit'						# Show lazygit
 
 
 # -------------------------------
