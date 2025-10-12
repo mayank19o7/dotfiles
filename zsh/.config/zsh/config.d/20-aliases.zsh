@@ -25,7 +25,7 @@ alias path='echo -e ${PATH//:/\\n}'	# Show PATH entries line-by-line
 # -------------------------------
 alias c='clear'							# Clear terminal screen
 alias grep='grep --color=auto'			# Colorize grep output for better visibility
-alias please='sudo $(history -p !!)'	# Rerun last command with sudo
+alias please='sudo $(fc -ln -1)'		# Rerun last command with sudo
 
 
 # -------------------------------
