@@ -1,3 +1,15 @@
+/*
+ 												- mayank19o7
+
+  ooooo                 o   ooooo          o         8
+  8                     8   8              8         8
+ o8oo   .oPYo. .oPYo.  o8P o8oo   .oPYo.  o8P .oPYo. 8oPYo.
+  8     .oooo8 Yb..     8   8     8oooo8   8  8    ' 8    8
+  8     8    8   'Yb.   8   8     8.       8  8    . 8    8
+  8     `YooP8 `YooP'   8   8     `Yooo'   8  `YooP' 8    8
+ :..:::::.....::.....:::..::..:::::.....:::..::.....:..:::..
+ :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+*/
 {
 	"$schema":"https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
 	"logo":{
