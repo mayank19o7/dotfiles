@@ -39,7 +39,8 @@ export LANG="en_US.UTF-8"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -48,3 +49,10 @@ source $ZSH/oh-my-zsh.sh
 # FZF key bindings: CTRL-R for fuzzy history search
 # -----------------------------------------------------
 source <(fzf --zsh)
+
+
+# -----------------------------------------------------
+# Powerlevel 10K
+# -----------------------------------------------------
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

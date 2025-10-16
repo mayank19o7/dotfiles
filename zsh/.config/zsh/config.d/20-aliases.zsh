@@ -31,10 +31,10 @@ alias please='sudo $(fc -ln -1)'		# Rerun last command with sudo
 # -------------------------------
 # Bookmarks
 # -------------------------------
-alias conf='cd ~/.config && ls'		# Go to .config, shows list of dir and files
-alias dl='cd ~/Downloads && ls'		# Go to Downloads, shows list of dir and files
-alias doc='cd ~/Documents && ls'	# Go to Documents, shows list of dir and files
-alias dot='cd ~/Dotfiles && ls'		# Go to Dotfiles, shows list of dir and files
+alias conf='cd ~/.config'			# Go to .config, shows list of dir and files
+alias dl='cd ~/Downloads'			# Go to Downloads, shows list of dir and files
+alias doc='cd ~/Documents'			# Go to Documents, shows list of dir and files
+alias dot='cd ~/Dotfiles'			# Go to Dotfiles, shows list of dir and files
 
 
 # -------------------------------
