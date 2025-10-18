@@ -83,28 +83,37 @@ frame_color = "#f38ba8"
 # App Name + Title + Body
 # format = "<b>%a</b>⏵ <i>%s</i>\n%b"
 ```
-<img src="/.config/dunst/samples/basic.png" width="200">
+<img src=".config/dunst/samples/basic.png" width="350">
 
 ```
 # Boxed / Divider Style
 # format = "🌀 <b>%a</b>\n──────────────\n%s\n<b>%b</b>"
 ```
+<img src=".config/dunst/samples/divider.png" width="350">
+
 ```
 # Minimal Modern Style
 # format = "<b>%s</b>\n<small>%b</small>"
 ```
+<img src=".config/dunst/samples/minimal.png" width="350">
+
 ```
 # Emoji + App Highlight
 # format = "📢 <b>%s</b>\n<i>(%a)</i>\n%b"
 ```
+<img src=".config/dunst/samples/emoji-appHighlight.png" width="350">
+
 ```
 # Multi-line framed look
 # format = "┌─ <b>%a</b> ─────────────┐\n<b>  %s</b>\n  %b\n└───────────────────────────┘"
 ```
+<img src=".config/dunst/samples/multiline-framedlook.png" width="350">
+
 ```
 # Subtle Grey App Label
 format = "<b>%s</b>\n<small><span fgcolor='#888888'>%a</span></small>\n%b"
 ```
+<img src=".config/dunst/samples/subtle-greyApp.png" width="350">
 
 ---
 
