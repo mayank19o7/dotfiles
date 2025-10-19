@@ -1,15 +1,16 @@
 # 📝 Micro Editor Configuration
 
-This directory contains my **Micro** text editor configuration and custom themes.
+This directory contains my **Micro** text editor configuration, keybindings, plugins, and custom themes.
 
 ---
 
 ## 📂 Structure
-
 ```
 micro/
 ├── colorschemes/      # Custom color themes
-└── settings.json      # Main Micro configuration file
+├── settings.json      # Main Micro configuration file
+├── bindings.json      # Custom keybindings for Micro
+└── plug/              # Plugins directory (created automatically when installing plugins).
 ```
 
 ---
@@ -17,17 +18,14 @@ micro/
 ## ⚙️ Installation (with GNU Stow)
 
 To link this configuration into your system:
-
 ```bash
 stow micro
 ```
 
 This will create the symlink:
-
 ```
 ~/.config/micro → ~/Dotfiles/micro/.config/micro
 ```
-
 ---
 
 ## 🎨 Themes
@@ -44,10 +42,46 @@ or edit the settings.json
 ```
 "colorscheme" : "<theme-file-name>"
 ```
+---
 
+## ⌨️ Keybindings
+
+Custom key mappings are defined in:
+```
+~/.config/micro/bindings.json
+```
+
+Example: for manipulator
+```json
+{
+  "Ctrl-l": "command:lower",
+  "Ctrl-u": "comman:upper"
+}
+```
+
+Reload bindings after changes:
+```
+> reload
+```
+---
+
+## 🔌 Plugins
+
+Plugins enhance Micro’s functionality. They are installed in:
+```
+~/.config/micro/plug/
+```
+
+To install or manage plugins:
+```
+> plugin install <plugin-name>
+> plugin list
+> plugin update
+```
 ---
 
 ## 🧩 Notes
 
-* `settings.json` defines key preferences, indentation, color schemes, and editor behavior.
-* Ideal for minimal setups — fast, lightweight, and consistent across systems.
+* `settings.json` defines preferences like indentation, color scheme, and UI behavior.
+* Designed for minimal setups — **fast**, **lightweight**, and **consistent** across systems.
+* Easily portable via **GNU Stow**.
