@@ -1,37 +1,75 @@
 # 🪟 Hyprland Setup
 
-This directory contains my **Hyprland** configuration files and startup scripts.
+This directory contains my **Hyprland** configuration files and startup scripts — part of my **dotfiles** managed using **GNU Stow**.
+
+---
+
+## 📂 Structure
+
+```
+hypr/
+├── .config/
+│   └── hypr/
+│       ├── hypridle.conf     # Idle and suspend management
+│       ├── hyprlock.conf     # Lock screen configuration
+│       ├── hyprpaper.conf    # Wallpaper configuration
+│       └── hyprland.conf     # Main Hyprland configuration
+│
+├── start-hyprland            # Startup script for Hyprland session
+├── .stow-local-ignore        # Files ignored during stow linking
+└── README.md                 # This file
+```
+
+---
+
+## ⚙️ LLinking with GNU Stow
+
+From your dotfiles root directory (e.g. `~/Dotfiles`):
+```bash
+stow hypr
+```
+
+This creates symlinks in your home directory so that Hyprland and its related tools read configuration directly from this repository.
+
+```
+~/.config/hypr -> Dotfiles/hypr/.config/hypr
+```
+
+To remove the symlink:
+```bash
+stow -D hypr
+```
 
 ---
 
 ## 🚀 `start-hyprland`
 
-This script is invoked by **greetd** (via `config.toml`) to launch a Hyprland session.
+This script is invoked by **greetd** (via `config.toml`) to launch an Hyprland session.
 
 ### 🧠 Purpose
-- Starts the **Hyprland** compositor  
-- Hides compositor logs from the TTY while logging all output to `$HOME/.local/share/hyprland.log`.
-- Sets required environment variables before launch.
-- Intended for use with greetd or with/without login managers.
+* Starts the **Hyprland** compositor.
+* Hides compositor logs from the TTY while logging output to `$HOME/.local/share/hyprland.log`.
+* Exports environment variables required for Wayland, GTK, and portal compatibility.
+* Works seamlessly whether started manually or via **greetd** / **tuigreet**.
 
 ---
 
 ### 📦 Installation
 
-Place the script somewhere in your `$PATH` folders, for example:
+Install the script to a directory in your `$PATH`, for example:
 
 ```bash
 sudo cp start-hyprland /usr/local/bin/
 
 # To make it executable
-chmod +x /usr/local/bin/start-hyprland   
+chmod +x /usr/local/bin/start-hyprland
 ```
 
 ---
 
 ### ⚙️ Integration with Greetd
 
-Edit `/etc/greetd/config.toml`, to use the script via **tuigreet**:
+Example snippet for `/etc/greetd/config.toml` to start Hyprland using **tuigreet**:
 
 ```toml
 [default_session]
@@ -40,9 +78,15 @@ command = "tuigreet --cmd start-hyprland"
 
 ---
 
-### 🧩 Notes
+## 🧩 Notes
 
-* Ensure the script is **executable** and accessible in `$PATH`.
-* Logs are useful for debugging startup or environment issues.
-* Some logs are also controlled by [Hyprland’s debug variable](https://wiki.hypr.land/Configuring/Variables/#debug) : if `disable_logs = false`, additional logs are stored in `$XDG_RUNTIME_DIR/hypr/<instanceSignature>/hyprland.log` during active sessions.
-* Mirrors how Greetd runs your session automatically after login.
+* You can adjust per-monitor settings, animations, gaps, and window rules inside the hyprland main configuration.
+* Combine this setup with utilities like:
+  * `waybar` or `eww` for status bars
+  * `fuzzel` or `rofi-wayland` for app launchers
+  * `mako` or `dunst` for notifications
+* For `Start-hyprland`
+  * Ensure the script is **executable** and accessible in `$PATH`.
+  * Logs are helpful for diagnosing startup or environment issues.
+  * Some logs are also controlled by [Hyprland’s debug variable](https://wiki.hypr.land/Configuring/Variables/#debug) : if `disable_logs = false`, additional logs are stored in `$XDG_RUNTIME_DIR/hypr/<instanceSignature>/hyprland.log` during active sessions.
+  * Mirrors how Greetd runs your session automatically after login.
