@@ -45,7 +45,7 @@ alias bat='bat -A'					# bat command with option to show non-printable character
 alias l='eza -l --icons=always'		# List files in long format with icons
 alias ls='eza -a --icons=always'	# List all files (including hidden) with icons
 alias ll='eza -al --icons=always'	# List all files in long format with icons
-alias lt='eza -a --tree --level=1 --icons=always'	# Display tree view of current dir, depth=1
+alias lt='eza -a --tree --level=5 --icons=always --ignore-glob=".git"'	# Display tree view of current dir, depth=1
 alias rm='rm -i'					# Prompt before removing files
 alias mv='mv -i'					# Prompt before overwriting while moving files
 alias cp='cp -i'					# Prompt before overwriting while copying files
