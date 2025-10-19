@@ -1,7 +1,7 @@
 # ⚡ Zsh Configuration
 
 Personal **Z Shell (zsh)** setup, managed with **GNU Stow** for clean, reproducible dotfile management.
-Includes modular configuration, useful plugins, and a minimal but powerful shell experience.
+Includes modular configuration, useful plugins, a customized **Powerlevel10k** prompt, and a minimal but powerful shell experience.
 
 ---
 
@@ -17,6 +17,7 @@ This configuration uses **Oh My Zsh** as a base and loads extra settings from mo
 * Autosuggestions and syntax highlighting
 * Fuzzy finder (`fzf`) integration
 * Clean history and alias management
+* Beautiful and fast **Powerlevel10k** prompt
 
 ---
 
@@ -25,7 +26,8 @@ This configuration uses **Oh My Zsh** as a base and loads extra settings from mo
 ```
 zsh/
 ├── .zshrc                     # Main zsh entrypoint
-└── _config/zsh/config.d/      # Modular configs
+├── .p10k.zsh                  # Powerlevel10k theme
+└── .config/zsh/config.d/      # Modular configs
     ├── 00-exports.zsh
     ├── 10-options.zsh
     ├── 20-aliases.zsh
@@ -41,6 +43,7 @@ zsh/
 plugins=(
   git
   fzf
+  extract
   zsh-autosuggestions
   zsh-syntax-highlighting
   fast-syntax-highlighting
@@ -49,6 +52,35 @@ plugins=(
 ```
 
 > 📝 Only set if `$plugins` isn’t already defined (avoids overwrite from other configs).
+
+---
+
+## 🎨 Powerlevel10k Prompt
+
+The theme is configured via **`.p10k.zsh`**, which defines prompt style, colors, icons, and segments.
+
+To use it:
+
+1. Install Powerlevel10k (via Oh My Zsh):
+
+   ```bash
+   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
+   ```
+
+2. Set the theme in your `.zshrc`:
+
+   ```bash
+   ZSH_THEME="powerlevel10k/powerlevel10k"
+   ```
+
+3. Restart your terminal.
+   If not configured yet, Powerlevel10k will launch a setup wizard.
+
+> ⚡ You can reconfigure anytime by running:
+>
+> ```bash
+> p10k configure
+> ```
 
 ---
 
@@ -74,26 +106,28 @@ This allows you to split configuration logically:
 ## 🚀 Installation (Using GNU Stow)
 
 1. Clone your dotfiles:
-
    ```bash
-   git clone https://github.com/<your-username>/my-dotfiles.git ~/Dotfiles
+   git clone https://github.com/mayank19o7/dotfiles.git ~/Dotfiles
    cd ~/Dotfiles
    ```
 
 2. Stow the `zsh` folder:
-
    ```bash
    stow zsh
    ```
 
    This will create symlinks:
-
    ```
-   ~/.zshrc  →  ~/Dotfiles/zsh/.zshrc
-   ~/.config/zsh/config.d/  →  ~/Dotfiles/zsh/_config/zsh/config.d/
+   ~/.zshrc                →  ~/Dotfiles/zsh/.zshrc
+   ~/.p10k.zsh             →  ~/Dotfiles/zsh/.p10k.zsh
+   ~/.config/zsh/config.d/ →  ~/Dotfiles/zsh/.config/zsh/config.d/
    ```
 
 3. Restart Terminal.
+4. To remove the symlink:
+	```bash
+	stow -D zsh
+	```
 
 ---
 
@@ -114,4 +148,5 @@ git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM
 
 * Keep plugins minimal for faster startup.
 * Add new `.zsh` files under `config.d/` for cleaner organization.
+* `.p10k.zsh` manages prompt appearance and can be customized anytime.
 * Works seamlessly with other Stow-managed dotfiles (e.g., `kitty`, `fastfetch`, `hypr`, etc.).
