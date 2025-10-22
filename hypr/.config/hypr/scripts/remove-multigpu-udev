@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# remove-multigpu-udev.sh — clean up Multi-GPU udev rules and symlinks
+
+set -e
+
+echo "🧹 Removing Multi-GPU udev rules and symlinks..."
+
+sudo rm -f /etc/udev/rules.d/nvidia-gpu-dev-path.rules
+sudo rm -f /etc/udev/rules.d/igpu-dev-path.rules
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+sudo rm -f /dev/dri/nvidia-gpu /dev/dri/igpu
+
+echo "✅ All Multi-GPU symlinks and rules removed."

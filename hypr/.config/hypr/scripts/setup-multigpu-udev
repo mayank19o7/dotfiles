@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+#
+# setup-multigpu-udev
+# ---------------------------------------------------------
+# Create persistent /dev/dri symlinks for Intel + NVIDIA GPUs
+# to support Hyprland Multi-GPU configuration.
+# ---------------------------------------------------------
+
+set -e
+
+echo "🔍 Detecting GPUs..."
+INTEL_GPU_ID=$(lspci -d ::0300 | grep -i 'Intel'  | awk '{print $1}' || true)
+NVIDIA_GPU_ID=$(lspci -d ::0300 | grep -i 'NVIDIA' | awk '{print $1}' || true)
+
+if [[ -z "$INTEL_GPU_ID" && -z "$NVIDIA_GPU_ID" ]]; then
+    echo "❌ No Intel or NVIDIA GPUs detected. Exiting."
+    exit 1
+fi
+
+# Rule directory
+RULE_DIR="/etc/udev/rules.d"
+
+# --- Create NVIDIA rule ---
+if [[ -n "$NVIDIA_GPU_ID" ]]; then
+    echo "🟦 Creating NVIDIA udev rule..."
+    sudo tee "$RULE_DIR/nvidia-gpu-dev-path.rules" > /dev/null <<EOF
+KERNEL=="card*", \
+KERNELS=="0000:$NVIDIA_GPU_ID", \
+SUBSYSTEM=="drm", \
+SUBSYSTEMS=="pci", \
+SYMLINK+="dri/nvidia-gpu"
+EOF
+fi
+
+# --- Create Intel rule ---
+if [[ -n "$INTEL_GPU_ID" ]]; then
+    echo "🟩 Creating Intel udev rule..."
+    sudo tee "$RULE_DIR/igpu-dev-path.rules" > /dev/null <<EOF
+KERNEL=="card*", \
+KERNELS=="0000:$INTEL_GPU_ID", \
+SUBSYSTEM=="drm", \
+SUBSYSTEMS=="pci", \
+SYMLINK+="dri/igpu"
+EOF
+fi
+
+# --- Reload udev ---
+echo "🔄 Reloading udev rules..."
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+
+echo "✅ Done! Verify with: ls -l /dev/dri /dev/dri/by-path"
