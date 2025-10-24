@@ -13,9 +13,9 @@ export HISTIGNORE="&:[bf]g:c:clear:history:exit:q:pwd:* --help"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+	export EDITOR='vim'
 else
-  export EDITOR='micro'
+	export EDITOR='nvim'
 fi
 
 # LESS pager options for better readability and color support
@@ -49,6 +49,12 @@ source $ZSH/oh-my-zsh.sh
 # FZF key bindings: CTRL-R for fuzzy history search
 # -----------------------------------------------------
 source <(fzf --zsh)
+
+
+# -----------------------------------------------------
+# Node version manager
+# -----------------------------------------------------
+source /usr/share/nvm/init-nvm.sh
 
 
 # -----------------------------------------------------
