@@ -4,7 +4,7 @@ return {
 		lazy = false,
 		priority = 1000,
 		opts = { transparent = true },
-		config = function(_,opts)
+		config = function(_, opts)
 			require("vague").setup(opts)
 			vim.cmd.colorscheme("vague")
 		end,
