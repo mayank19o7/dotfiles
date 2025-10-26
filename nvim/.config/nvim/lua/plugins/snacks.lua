@@ -72,7 +72,7 @@ return {
 		{ "gt",				function() Snacks.picker.lsp_type_definitions() end, desc = "Goto [t]ype definition" },
 		{ "<leader>d",		function() Snacks.picker.diagnostics_buffer() end, desc = "Buffer diagnostics" },
 		{ "<leader>ca",		vim.lsp.buf.code_action, desc = "Code actions" },
-		{ "<leader>f",		vim.lsp.buf.format, desc = "Format buffer" },
+		{ "<leader>f",		function() Snacks.notifier.notify( " 💯 Format buffer !", "info", {}) vim.lsp.buf.format({async = true}) end, desc = "Format buffer" },
 
 		-- Other
 		{ "<leader>.",		function() Snacks.scratch() end, desc = "Toggle scratch buffer" },
