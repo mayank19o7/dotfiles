@@ -18,7 +18,7 @@ return {
 			float = {
 				transparent = true,
 				solid = true,
-			}
+			},
 		},
 	},
 }

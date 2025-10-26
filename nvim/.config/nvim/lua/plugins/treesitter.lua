@@ -22,5 +22,5 @@ return {
 				"typescript",
 			},
 		})
-	end
+	end,
 }

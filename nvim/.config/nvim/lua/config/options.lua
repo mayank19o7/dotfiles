@@ -37,7 +37,7 @@ opt.smartcase = true
 -- --------------------------------------------------------
 
 -- Sets a global border style for all floating windows
-opt.winborder = 'rounded'
+opt.winborder = "rounded"
 
 -- Enable line numbers
 opt.number = true
