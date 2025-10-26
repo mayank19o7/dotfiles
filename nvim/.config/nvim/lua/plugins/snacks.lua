@@ -49,10 +49,10 @@ return {
 		-- find
 		{ "<leader><space>",function() Snacks.picker.smart() end, desc = "Smart Find Files" },
 		{ "<leader>ff",		function() Snacks.picker.files() end, desc = "Find Files" },
-		{ "<leader>/",		function() Snacks.picker.grep() end, desc = "Grep files" },
+		{ "<leader>fg",		function() Snacks.picker.grep() end, desc = "Grep files" },
 		{ "<leader>fb",		function() Snacks.picker.buffers() end, desc = "Buffers" },
 		{ "<leader>fc",		function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find config files" },
-		{ "<leader>fg",		function() Snacks.picker.git_files() end, desc = "Find git files" },
+		{ "<leader>gf",		function() Snacks.picker.git_files() end, desc = "Find git files" },
 		{ "<leader>fr",		function() Snacks.picker.recent() end, desc = "Recent files" },
 
 		-- git
@@ -72,7 +72,7 @@ return {
 		{ "gt",				function() Snacks.picker.lsp_type_definitions() end, desc = "Goto [t]ype definition" },
 		{ "<leader>d",		function() Snacks.picker.diagnostics_buffer() end, desc = "Buffer diagnostics" },
 		{ "<leader>ca",		vim.lsp.buf.code_action, desc = "Code actions" },
-		{ "<leader>gf",		vim.lsp.buf.format, desc = "Format buffer" },
+		{ "<leader>f",		vim.lsp.buf.format, desc = "Format buffer" },
 
 		-- Other
 		{ "<leader>.",		function() Snacks.scratch() end, desc = "Toggle scratch buffer" },
