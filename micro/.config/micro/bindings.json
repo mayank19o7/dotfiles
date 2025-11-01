@@ -1,6 +1,6 @@
 {
-    "Alt-/": "lua:comment.comment",
-    "Ctrl-l": "command:lower",
-    "Ctrl-u": "command:upper",
-    "CtrlUnderscore": "lua:comment.comment"
+	"Alt-/": "lua:comment.comment",
+	"Ctrl-l": "command:lower",
+	"Ctrl-u": "command:upper",
+	"CtrlUnderscore": "lua:comment.comment"
 }

@@ -21,6 +21,13 @@ map("n", "gs", function() Snacks.picker.git_status() end, { desc = "Git status" 
 map("n", "gS", function() Snacks.picker.git_stash() end, { desc = "Git stash" })
 map("n", "gd", function() Snacks.picker.git_diff() end, { desc = "Git diff (Hunks)" })
 map("n", "gf", function() Snacks.picker.git_log_file() end, { desc = "Git log file" })
+map("n", "ga",
+	function()
+		vim.fn.system({ "git", "add", vim.fn.expand("%") })
+		Snacks.notifier.notify("📦 Added " .. vim.fn.expand("%:t") .. " to Git", "info", {})
+	end,
+	{ desc = "Git add current file" }
+)
 
 -- Misc
 map("n", "<leader>.", function() Snacks.scratch() end, { desc = "Toggle scratch buffer" })

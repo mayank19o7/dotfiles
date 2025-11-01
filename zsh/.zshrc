@@ -34,5 +34,5 @@
 # Load custom modular configs from ~/.config/zsh/config.d
 # -------------------------------------------------------
 for conf in "$HOME/.config/zsh/config.d/"*.zsh; do
-  source "${conf}"
+	source "${conf}"
 done

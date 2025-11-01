@@ -1,26 +1,26 @@
 /*
-								- mayank19o7
-  o     o  o
-  8b   d8
-  8`b d'8 o8 .oPYo. oPYo. .oPYo.
-  8 `o' 8  8 8    ' 8  `' 8    8
-  8     8  8 8    . 8     8    8
-  8     8  8 `YooP' 8     `YooP'
- :..::::..:..:.....:..:::::.....:::::::::::
- ::::::::::::::::::::::::::::::::::::::::::
+*								- mayank19o7
+*  o     o  o
+*  8b   d8
+*  8`b d'8 o8 .oPYo. oPYo. .oPYo.
+*  8 `o' 8  8 8    ' 8  `' 8    8
+*  8     8  8 8    . 8     8    8
+*  8     8  8 `YooP' 8     `YooP'
+* :..::::..:..:.....:..:::::.....:::::::::::
+* ::::::::::::::::::::::::::::::::::::::::::
 */
 {
-	"colorscheme" : "catppuccin-macchiato-transparent",
-	"diffgutter" : true,
-	"divreverse" : false,
-	"fastdirty" : true,
-	"ftoptions" : false,
-	"hlsearch" : true,
-	"hltaberrors" : true,
-	"hltrailingws" : true,
-	"multiopen" : "vsplit",
-	"pluginchannels" : [
+	"colorscheme": "catppuccin-macchiato-transparent",
+	"diffgutter": true,
+	"divreverse": false,
+	"fastdirty": true,
+	"ftoptions": false,
+	"hlsearch": true,
+	"hltaberrors": true,
+	"hltrailingws": true,
+	"multiopen": "vsplit",
+	"pluginchannels": [
 		"https://raw.githubusercontent.com/micro-editor/plugin-channel/master/channel.json"
 	],
-	"rmtrailingws" : true
+	"rmtrailingws": true
 }
