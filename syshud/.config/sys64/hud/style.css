@@ -1,0 +1,126 @@
+/* ───────────────
+ * Base container
+ * ─────────────── */
+#syshud {
+	background: transparent;
+	border: none;
+}
+
+/* Main box */
+#syshud .box_layout {
+	background: rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
+	border: none;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+	padding: 0;
+}
+
+/* Label */
+#syshud label {
+	color: rgba(255, 255, 255, 0.6);
+	font-size: 12pt;
+	font-weight: bolder;
+}
+
+/* ───────────────
+ * Common Scale Base
+ * ─────────────── */
+#syshud scale {
+	background: transparent;
+	margin: 0px;
+	padding: 10px;
+}
+
+#syshud scale trough {
+	background: transparent;
+	border-radius: 10px;
+	border: none;
+}
+
+/* Remove knob */
+#syshud scale slider {
+	background: transparent;
+	border: none;
+	box-shadow: none;
+	margin: 0px;
+	padding: 0px;
+	min-height: 0px;
+	min-width: 0px;
+}
+
+/* ───────────────
+ * Vertical layout
+ * ─────────────── */
+#syshud scale.vertical {
+	min-height: 160px;
+	min-width: 30px;
+}
+
+#syshud scale.vertical trough {
+	min-width: 30px;
+}
+
+#syshud scale.vertical highlight {
+	border-radius: 10px;
+	border: none;
+	box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+	min-height: 2px;
+	min-width: 30px;
+	transition: all 0.2s ease-in-out;
+	background: linear-gradient(to bottom, #158ABC 0%, #AAAAAA 100%);
+}
+
+/* ───────────────
+ * Horizontal layout
+ * ─────────────── */
+#syshud scale.horizontal {
+	min-width: 160px;
+	min-height: 30px;
+}
+
+#syshud scale.horizontal trough {
+	min-height: 30px;
+}
+
+#syshud scale.horizontal highlight {
+	border-radius: 10px;
+	border: none;
+	box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+	min-width: 2px;
+	min-height: 30px;
+	transition: all 0.2s ease-in-out;
+	background: linear-gradient(to right, #158ABC 0%, #AAAAAA 100%);
+}
+
+/* ───────────────
+ * State colors (both orientations)
+ * ─────────────── */
+
+/* Muted: grey */
+#syshud .muted scale highlight {
+	background: linear-gradient(to var(--direction, bottom), #555 0%, #AAA 100%);
+}
+
+/* Low: green */
+/* #syshud .low scale highlight { */
+/* 	background: linear-gradient(to var(--direction, bottom), #1DB954 0%, #AAAAAA 100%); */
+/* } */
+
+/* Medium: yellow */
+/* #syshud .medium scale highlight { */
+/* 	background: linear-gradient(to var(--direction, bottom), #E8C605 0%, #AAAAAA 100%); */
+/* } */
+
+/* High: red */
+#syshud .high scale highlight {
+	background: linear-gradient(to var(--direction, bottom), #ED1C24 0%, #AAAAAA 100%);
+}
+
+/* Helper for GTK4 (orientation-based color direction) */
+#syshud scale.vertical highlight {
+	--direction: bottom;
+}
+
+#syshud scale.horizontal highlight {
+	--direction: right;
+}
