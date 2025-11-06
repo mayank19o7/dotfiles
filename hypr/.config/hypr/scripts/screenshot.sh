@@ -1,0 +1,72 @@
+
+#!/usr/bin/env bash
+
+#																		- mayank19o7
+#
+#                                                8               o
+#                                                8               8
+# .oPYo. .oPYo. oPYo. .oPYo. .oPYo. odYo. .oPYo. 8oPYo. .oPYo.  o8P
+# Yb..   8    ' 8  `' 8oooo8 8oooo8 8' `8 Yb..   8    8 8    8   8
+#   'Yb. 8    . 8     8.     8.     8   8   'Yb. 8    8 8    8   8
+# `YooP' `YooP' 8     `Yooo' `Yooo' 8   8 `YooP' 8    8 `YooP'   8
+# :.....::.....:..:::::.....::.....:..::..:.....:..:::..:.....:::..:::::::::::::::::::
+# ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+# ------------------------------------------------------------------------------------
+# screenshot.sh — unified screenshot script for grim, slurp, wl-copy, swappy, dunstify
+# ------------------------------------------------------------------------------------
+
+set -e
+
+output_dir="$HOME/Pictures"
+mode="$1"  # "area-copy", "area-edit", or "full"
+
+timestamp=$(date +'%Y-%m-%d_%H-%M-%S')
+file="$output_dir/screenshot_${timestamp}.png"
+
+case "$mode" in
+	area-copy)
+		# Select area and copy to clipboard
+		selection=$(slurp) || exit 0
+		if grim -g "$selection" "$file"; then
+			paplay /usr/share/sounds/freedesktop/stereo/camera-shutter.oga &
+			wl-copy < "$file"
+			dunstify -i camera-photo "Screenshot" "Saved & Copied !!!"
+		else
+			dunstify -i dialog-error "Screenshot Failed" "Could not take screenshot"
+		fi
+		;;
+
+	area-edit)
+		# Select area and open in Swappy
+		selection=$(slurp) || exit 0
+		grim -g "$selection" - | swappy -f - & disown
+		dunstify -i camera-photo "Screenshot" "Opened for editing ..."
+		;;
+
+	full)
+		# Take a screenshot of the monitor of the active workspace
+		active_workspace=$(hyprctl activeworkspace -j | jq -r '.id')
+		monitor_info=$(hyprctl monitors -j | jq -r ".[] | select(.activeWorkspace.id == $active_workspace)")
+
+		if [ -z "$monitor_info" ]; then
+			dunstify -i dialog-error "Screenshot Failed" "No active monitor found"
+			exit 1
+		fi
+
+		x=$(echo "$monitor_info" | jq -r '.x')
+		y=$(echo "$monitor_info" | jq -r '.y')
+		width=$(echo "$monitor_info" | jq -r '.width')
+		height=$(echo "$monitor_info" | jq -r '.height')
+
+		if grim -g "${x},${y} ${width}x${height}" "$file"; then
+			paplay /usr/share/sounds/freedesktop/stereo/camera-shutter.oga &
+			dunstify -i camera-photo "Full Screenshot" "Saved as $(basename "$file")"
+		else
+			dunstify -i dialog-error "Screenshot Failed" "Could not take screenshot"
+		fi
+		;;
+	*)
+		echo "Usage: $0 [area-copy | area-edit | full]"
+		exit 1
+		;;
+esac

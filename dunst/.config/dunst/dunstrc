@@ -28,7 +28,7 @@
     #
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
-    follow = none
+    follow = mouse
 
     ### Geometry ###
 
@@ -52,7 +52,7 @@
     # Offset from the origin
     # NOTE: Dunst from version 1.11 and older use this alternative notation
     # offset = 10x50
-    offset = (10, 30)
+    offset = (30, 80)
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -106,23 +106,23 @@
     # notifications.
     # Set to 0 to disable.
     # If gap_size is greater than 0, this setting will be ignored.
-    separator_height = 2
+    separator_height = 0
 
     # Padding between text and separator.
-    padding = 8
+    padding = 10
 
     # Horizontal padding.
-    horizontal_padding = 20
+    horizontal_padding = 15
 
     # Padding between text and icon.
-    text_icon_padding = 0
+    text_icon_padding = 10
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
     frame_width = 2
 
     # Defines color of the frame around the notification window.
-    frame_color = "#aaaaaa"
+    frame_color = "#646670"
 
     # Size of gap to display between notifications - requires a compositor.
     # If value is greater than 0, separator_height will be ignored and a border
@@ -159,7 +159,7 @@
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
-    line_height = 0
+    line_height = 1
 
     # Possible values are:
     # full: Allow a small subset of html markup in notifications:
@@ -197,11 +197,11 @@
     #   %n  progress value if set without any extra characters
     #   %%  literal %
     # Markup is allowed
-    format = "📢 <b>%s</b>\n<small><span fgcolor='#888888'>%a</span></small>\n%b"
+    format = "<b>%s</b>\n%b"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
-    alignment = left
+    alignment = center
 
     # Vertical alignment of message text and icon.
     # Possible values are "top", "center" and "bottom".
@@ -235,7 +235,7 @@
     enable_recursive_icon_lookup = true
 
     # Set icon theme (only used for recursive icon lookup)
-    icon_theme = Adwaita
+    icon_theme = "Papirus-Dark, Adwaita"
     # You can also set multiple icon themes, with the leftmost one being used first.
     # icon_theme = "Adwaita, breeze"
 
@@ -245,13 +245,13 @@
     # Scale small icons up to this size, set to 0 to disable. Helpful
     # for e.g. small files or high-dpi screens. In case of conflict,
     # max_icon_size takes precedence over this.
-    min_icon_size = 0
+    min_icon_size = 32
 
     # Scale larger icons down to this size, set to 0 to disable
     max_icon_size = 128
 
     # Paths to default icons (only necessary when not using recursive icon lookup)
-    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    # icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
     ### History ###
 
@@ -351,32 +351,25 @@
     # where there are multiple screens with very different dpi values.
     per_monitor_dpi = true
 
-
+# IMPORTANT: colors have to be defined in quotation marks.
+# Otherwise the "#" and following would be interpreted as a comment.
 [urgency_low]
-    # IMPORTANT: colors have to be defined in quotation marks.
-    # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#35373BE6"
-    foreground = "#7DB0AB"
+    background = "#000000B3"
+    foreground = "#E6C384"
     timeout = 10
-    # Icon for notifications with low urgency
-    default_icon = dialog-information
 
 [urgency_normal]
-	background = "#1E1E2EE6"
-	foreground = "#CDD6F4"
+	background = "#000000B3"
+	foreground = "#C3C4C6"
     timeout = 10
     override_pause_level = 30
-    # Icon for notifications with normal urgency
-    default_icon = dialog-information
 
 [urgency_critical]
-    background = "#000000E6"
-    foreground = "#FF8273"
-    frame_color = "#FF8273"
+    background = "#220000B3"
+    foreground = "#F7768E"
+    frame_color = "#F7768E"
     timeout = 0
     override_pause_level = 60
-    # Icon for notifications with critical urgency
-    default_icon = dialog-warning
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
