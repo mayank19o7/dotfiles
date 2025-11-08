@@ -20,13 +20,14 @@
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Add wisely, as too many plugins slow down shell startup.
 [[ -z "${plugins[*]}" ]] && plugins=(
-    git
-    fzf
-    extract
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    fast-syntax-highlighting
-    zsh-history-substring-search
+	git
+	fzf
+	extract
+	ssh-agent
+	zsh-autosuggestions
+	zsh-syntax-highlighting
+	fast-syntax-highlighting
+	zsh-history-substring-search
 )
 
 
