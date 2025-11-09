@@ -10,7 +10,7 @@ This directory contains my **Hyprland** configuration files and startup scripts 
 hypr/
 ├── .config/
 │   └── hypr/
-│       ├── environment.conf 	# Environment variables for Wayland, GTK, etc.
+│       ├── environment.conf 	# Environment variables for Wayland, GTK, GPU etc.
 │       ├── globals.conf 		# Global variables used across configs
 │       ├── autoStart.conf 		# Applications/services launched at startup
 │       ├── monitors.conf 		# Display arrangement and scaling
@@ -25,7 +25,7 @@ hypr/
 │       ├── hyprlock.conf 		# Lock screen configuration
 │       ├── hyprpaper.conf 		# Wallpaper configuration
 │       └── scripts/
-│           ├── start-hyprland			# Startup script for Hyprland session (used by greetd)
+│           ├── start-hyprland			# Startup script for Hyprland session
 │           ├── setup-multigpu-udev		# Setup script for multi-GPU udev rules
 │           └── remove-multigpu-udev	# Cleanup script to remove udev links
 ├── README.md 					# This file
@@ -58,12 +58,12 @@ stow -D hypr
 
 ### ▶ `start-hyprland`
 
-Invoked by **greetd** (via `config.toml`) to launch a Hyprland session.
+To launch a Hyprland session, either from Tty(1) or using **greetd** (via `config.toml`).
 
 **Features:**
 * Starts the **Hyprland** compositor.
 * Hides compositor logs from the TTY while logging output to `$HOME/.local/share/hyprland.log`.
-* Works seamlessly whether started manually or via **greetd** / **tuigreet**.
+* Works seamlessly whether started manually, from tty(1) or via **greetd** / **tuigreet**.
 
 **Installation:** Install the script to a directory in your `$PATH`, for example:
 
@@ -74,11 +74,24 @@ sudo cp scripts/start-hyprland /usr/local/bin/
 chmod +x /usr/local/bin/start-hyprland
 ```
 
-**Integration (example `/etc/greetd/config.toml`):** to start Hyprland using **tuigreet**:
+**Integration**
+
+<u>to start Hyprland using **tuigreet**</u>:
+
+Example `/etc/greetd/config.toml`:
 
 ```toml
 [default_session]
 command = "tuigreet --cmd start-hyprland"
+```
+<u>to start Hyprland from tty(1)</u>:
+
+Example `.zprofile`:
+
+```
+If [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ] .... ; then
+	exec start-hyprland
+fi
 ```
 
 ---

@@ -24,11 +24,11 @@ yazi/
 
 ## ⚙️ Overview
 
-| File                | Purpose                                                                                         |
-| ------------------- | ----------------------------------------------------------------------------------------------- |
-| **`yazi.toml`**     | Core Yazi configuration — layout, keymaps, previewers, behavior tweaks, etc.                    |
-| **`theme.toml`**    | Defines interface colors and visual tweaks used across the UI.                                  |
-| **`flavors/`**      | Contains modular theme variants or color “flavors.”                                             |
+| File                     | Purpose                                                                                         |
+| ------------------------ | ----------------------------------------------------------------------------------------------- |
+| **`yazi.toml`**          | Core Yazi configuration — layout, keymaps, previewers, behavior tweaks, etc.                    |
+| **`theme.toml`**         | Defines interface colors and visual tweaks used across the UI.                                  |
+| **`flavors/`**           | Contains modular theme variants or color “flavors.”                                             |
 | **`<theme-name>.yazi/`** | Example flavor — includes `flavor.toml` for color mappings and `tmtheme.xml` for syntax themes. |
 
 ---
@@ -68,5 +68,3 @@ flavors/
 ```
 
 Edit `theme.toml` or update your `yazi.toml` to point to your preferred flavor.
-
----

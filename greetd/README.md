@@ -6,8 +6,8 @@ A lightweight, terminal-based login manager setup for any Wayland/X11 environmen
 
 ## 🧩 Overview
 
-**greetd** is a minimal, flexible display/login manager daemon.
-**tuigreet** is its TUI (Text User Interface) frontend, providing a clean and efficient login prompt that works seamlessly with both **Wayland** and **X11** sessions.
+**[greetd](https://github.com/kennylevinsen/greetd)** is a minimal, flexible display/login manager daemon.
+**[tuigreet](https://github.com/apognu/tuigreet)** is its TUI (Text User Interface) frontend, providing a clean and efficient login prompt that works seamlessly with both **Wayland** and **X11** sessions.
 
 Together, they form a fast and simple alternative to graphical login managers.
 
@@ -107,57 +107,10 @@ Ensure your compositor (e.g., `Hyprland`, `sway`) is correctly installed and con
 
 ---
 
-## 📝 Notes & Tips
+## 📝 Notes
 
-### 🌐 Ensure UTF-8 Locale Is Set
-
-Make sure your system locale is configured for UTF-8 to avoid character display issues:
-
-```bash
-sudo localectl set-locale LANG=en_US.UTF-8
-```
-
-Verify configuration:
-
-```bash
-locale
-```
-
-Ensure `LANG` and related variables use a UTF-8 locale (e.g., `en_US.UTF-8`).
-
----
-
-### 🔠 Increase Console Font Size (TTY)
-
-If the login prompt text appears too small, install and apply a larger font such as **Terminus**:
-
-```bash
-sudo pacman -S terminus-font
-```
-
-To test temporarily:
-
-```bash
-setfont ter-v28b
-```
-
-To make it **persistent** across reboots, edit `/etc/vconsole.conf`:
-
-```bash
-sudo micro /etc/vconsole.conf
-```
-
-Add or modify:
-
-```
-FONT=ter-v28b
-```
-
-Rebuild initramfs (optional but recommended):
-
-```bash
-sudo mkinitcpio -P
-```
+* Ensure UTF-8 locale is set
+* Increase console font size (TTY) accordingly
 
 ---
 
@@ -167,7 +120,7 @@ To disable and remove greetd and tuigreet:
 
 ```bash
 sudo systemctl disable greetd.service
-sudo pacman -Rns greetd tuigreet
+sudo pacman -Rns greetd-tuigreet
 ```
 
 *(Adjust package commands for non-Arch distributions.)*
@@ -176,7 +129,4 @@ sudo pacman -Rns greetd tuigreet
 
 ## 📚 References
 
-* [tuigreet on GitHub](https://github.com/apognu/tuigreet)
 * [Arch Wiki: greetd](https://wiki.archlinux.org/title/Greetd)
-
----

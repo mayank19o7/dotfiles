@@ -26,6 +26,7 @@ This configuration uses **Oh My Zsh** as a base and loads extra settings from mo
 ```
 zsh/
 ├── .zshrc                     # Main zsh entrypoint
+├── .zprofile                  # Load profile : to auto-start Hyprland
 ├── .p10k.zsh                  # Powerlevel10k theme
 └── .config/zsh/config.d/      # Modular configs
     ├── 00-exports.zsh
@@ -41,13 +42,14 @@ zsh/
 
 ```bash
 plugins=(
-  git
-  fzf
-  extract
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-  fast-syntax-highlighting
-  zsh-history-substring-search
+    git
+    fzf
+    extract
+    ssh-agent
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    fast-syntax-highlighting
+    zsh-history-substring-search
 )
 ```
 
@@ -119,6 +121,7 @@ This allows you to split configuration logically:
    This will create symlinks:
    ```
    ~/.zshrc                →  ~/Dotfiles/zsh/.zshrc
+   ~/.zprofile             →  ~/Dotfiles/zsh/.zprofile
    ~/.p10k.zsh             →  ~/Dotfiles/zsh/.p10k.zsh
    ~/.config/zsh/config.d/ →  ~/Dotfiles/zsh/.config/zsh/config.d/
    ```

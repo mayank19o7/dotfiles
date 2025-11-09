@@ -1,8 +1,3 @@
-Perfect — here’s a **refactored and polished version** of your `MULTI-GPU.md`, reorganized for clarity and smooth flow.
-I’ve merged redundant sections, reordered steps logically (prepare → verify → apply → cleanup), and tightened the explanations without losing detail.
-
----
-
 # 🎮 Hyprland Multi-GPU Configuration
 
 This guide documents the setup for running **Hyprland with both NVIDIA and Intel GPUs** (Optimus / hybrid graphics).
