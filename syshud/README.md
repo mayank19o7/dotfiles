@@ -1,13 +1,13 @@
 # 💬 Syshud Configuration
 
-This directory contains my **Syshud** setup — a clean and minimal **system HUD / on-screen display** configuration used in my Wayland environment.
+This directory contains my **[syshud](https://github.com/System64fumo/syshud)** setup — a clean and minimal **system HUD / on-screen display** configuration used in my Wayland environment.
 It’s managed using **GNU Stow** for easy, modular dotfile management.
 
 ---
 
 ## 🧠 Overview
 
-**Syshud** (from [System64fumo/syshud](https://github.com/System64fumo/syshud)) provides a lightweight heads-up display for showing system events like volume or brightness changes.
+**Syshud** provides a lightweight heads-up display for showing system events like volume or brightness changes.
 
 My configuration defines:
 
@@ -64,8 +64,6 @@ stow -D syshud
 * Defines fonts, colors, borders, and animation transitions.
 * Tuned for a subtle, distraction-free look.
 
-### 
-
 ---
 
 ## 🗒️ Notes
@@ -75,6 +73,7 @@ stow -D syshud
 * Restart the HUD or reload its service after config changes for updates to take effect.
 * **For keytoggle functionality:**
   * Only works in horizontal orientation as of now.
+  * Add `keyboard` as one of the listeners in config.conf.
   * Add your keyboard device path from `/dev/input/` inside the config.
   * Add your user to the `input` group to grant permission:
 

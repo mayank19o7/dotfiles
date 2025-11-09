@@ -1,16 +1,19 @@
 # 📝 Micro Editor Configuration
 
-This directory contains my **Micro** text editor configuration, keybindings, plugins, and custom themes.
+This directory contains my **[Micro](https://github.com/zyedidia/micro)** text editor configuration, keybindings, plugins, and custom themes.
 
 ---
 
 ## 📂 Structure
+
 ```
 micro/
-├── colorschemes/      # Custom color themes
-├── settings.json      # Main Micro configuration file
-├── bindings.json      # Custom keybindings for Micro
-└── plug/              # Plugins directory (created automatically when installing plugins).
+├── .config/
+│       micro/
+│       ├── colorschemes/      # Custom color themes
+│       ├── settings.json      # Main Micro configuration file
+│       ├── bindings.json      # Custom keybindings for Micro
+│       └── plug/              # Plugins directory (created automatically when installing plugins).
 ```
 
 ---
@@ -51,7 +54,7 @@ Custom key mappings are defined in:
 ~/.config/micro/bindings.json
 ```
 
-Example: for manipulator
+Example: for manipulator plugin
 ```json
 {
   "Ctrl-l": "command:lower",

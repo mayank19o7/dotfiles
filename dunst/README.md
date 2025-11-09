@@ -1,6 +1,6 @@
 # 🔔 Dunst Configuration
 
-This directory contains my **Dunst** configuration — a lightweight and highly customizable notification daemon for Linux.
+This directory contains my **[Dunst](https://github.com/dunst-project/dunst)** configuration — a lightweight and highly customizable notification daemon for Linux.
 
 ---
 
@@ -22,9 +22,9 @@ dunst/
 
 ---
 
-## 🧩 Installation & Linking
+## 🧩 Installation
 
-If you manage your dotfiles with **GNU Stow**, link the configuration from your dotfiles root directory (e.g. `~/Dotfiles`):
+If you manage your dotfiles with **GNU Stow**, link the configuration from the dotfiles root directory (e.g. `~/Dotfiles`):
 ```bash
 stow dunst
 ```
@@ -64,17 +64,17 @@ separator_height = 1
 format = "<b>%s %p</b>\n%b"
 
 [urgency_low]
-background = "#1e1e2e"
-foreground = "#cdd6f4"
+background = "#1E1E2E"
+foreground = "#CDD6F4"
 
 [urgency_normal]
 background = "#181825"
-foreground = "#f5e0dc"
+foreground = "#F5E0DC"
 
 [urgency_critical]
-background = "#f38ba8"
-foreground = "#1e1e2e"
-frame_color = "#f38ba8"
+background = "#F38BA8"
+foreground = "#1E1E2E"
+frame_color = "#F38BA8"
 ```
 
 **Some unique formats**
@@ -139,11 +139,11 @@ You can also reload it automatically through your **Hyprland startup script** or
 ## 🧠 Tips
 
 * Run `notify-send "Dunst is working!"` to test your setup.
+* Can try below different messages with priority levels:
+  ```
+  dunstify -u low -i dialog-information "Low Urgency" "This is a low-priority message"
+  dunstify -u normal -i dialog-warning "Normal Urgency" "This is a standard message"
+  dunstify -u critical -i dialog-error "Critical Urgency" "This is an urgent warning"
+  ```
 * Use `dunstctl history-pop` to recall missed notifications.
 * Use `dunstctl close-all` to clear all notifications instantly.
-
----
-
-## 🪄 Credits
-
-* [Dunst GitHub](https://github.com/dunst-project/dunst)

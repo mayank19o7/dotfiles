@@ -1,6 +1,6 @@
 # 🐱 Kitty Configuration
 
-This directory contains my **Kitty terminal** configuration files, including themes and appearance settings.
+This directory contains my **[Kitty terminal](https://github.com/kovidgoyal/kitty)** configuration files, including themes and appearance settings.
 It is part of my **dotfiles** setup and managed using **GNU Stow** for easy symlink management.
 
 ---

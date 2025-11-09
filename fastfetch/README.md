@@ -1,6 +1,6 @@
 # ⚡ Fastfetch Configuration
 
-This directory contains my **Fastfetch** setup — a modern, fast, and highly customizable alternative to Neofetch.
+This directory contains my **[Fastfetch](https://github.com/fastfetch-cli/fastfetch)** setup — a modern, fast, and highly customizable alternative to Neofetch.
 It displays system information in the terminal with themed logos and presets.
 
 ---
@@ -55,20 +55,7 @@ fastfetch --config ~/.config/fastfetch/presets/terminal
 
 * **Autostart in Zsh:**
 
-```bash
-if [[ $(tty 2>/dev/null) == *"pts"* ]]; then
-	# ~/.config/fastfetch/presets should have a terminal.jsonrc to be used/auto-started in zsh.
-	if command -v fastfetch >/dev/null 2>&1; then
-		fastfetch --config "$HOME/.config/fastfetch/presets/terminal" 2>/dev/null || true
-
-		# Clears the terminal after pressing any key.
-		echo
-		echo "Press any key to clear..."
-		read -k 1 -s
-		clear
-	fi
-fi
-```
+see [autostart.zsh](https://github.com/mayank19o7/dotfiles/blob/main/zsh/.config/zsh/config.d/30-autostart.zsh)
 
 ---
 
