@@ -118,4 +118,4 @@ alias ping='ping -c 5'					# Ping with 5 packets by default
 # -------------------------------
 alias reboot='systemctl reboot'			# Reboot system
 alias shutdown='systemctl poweroff'		# Shutdown system
-alias logout='hyprctl dispatch exit; systemctl restart greetd'	# Logout system
+alias logout='hyprctl dispatch exit'	# Logout system

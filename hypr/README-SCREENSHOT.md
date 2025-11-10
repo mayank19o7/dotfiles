@@ -1,6 +1,6 @@
 # 📸 `Screenshot Utility` 
 
-[screenshot.sh](.config/hypr/scripts/screenshot.sh) - a **unified utility** for **Wayland / Hyprland**, combining tools like `grim`, `slurp`, `wl-copy`, `swappy`, and `dunstify`.
+[screenshot](.config/hypr/scripts/screenshot) - a **unified utility** for **Wayland / Hyprland**, combining tools like `grim`, `slurp`, `wl-copy`, `swappy`, and `dunstify`.
 Designed for a seamless screenshot experience — capture, copy, or edit with minimal effort.
 
 ---
@@ -43,15 +43,15 @@ Make sure the following packages are installed:
 ## 🚀 Usage
 
 ```bash
-screenshot.sh [mode]
+screenshot [mode]
 ```
 
 ### Examples
 
 ```bash
-screenshot.sh area-copy   # Select area → save & copy to clipboard
-screenshot.sh area-edit   # Select area → open in Swappy for editing
-screenshot.sh full        # Capture full screen of active monitor
+screenshot area-copy   # Select area → save & copy to clipboard
+screenshot area-edit   # Select area → open in Swappy for editing
+screenshot full        # Capture full screen of active monitor
 ```
 
 Each action will play a **camera shutter sound** and show a **notification** confirming success or failure.
@@ -65,9 +65,9 @@ You can bind the script to shortcuts in your **Hyprland**, **Waybar**, or **Wofi
 Example Hyprland keybinds:
 
 ```ini
-bind = , PRINT, exec, ~/.config/scripts/screenshot.sh area-copy
-bind = $mod, PRINT, exec, ~/.config/scripts/screenshot.sh area-edit
-bind = $mod SHIFT, PRINT, exec, ~/.config/scripts/screenshot.sh full
+bind = , PRINT, exec, ~/.config/scripts/screenshot area-copy
+bind = $mod, PRINT, exec, ~/.config/scripts/screenshot area-edit
+bind = $mod SHIFT, PRINT, exec, ~/.config/scripts/screenshot full
 ```
 
 ---
