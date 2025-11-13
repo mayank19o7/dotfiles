@@ -248,6 +248,17 @@ See [**README-SCREENSHOT.md**](hypr/README-SCREENSHOT.md) for more information.
 
 </details>
 
+<details>
+<summary><b>😀 Emoji Picker</b></summary>
+
+A simple [emoji-picker](hypr/.config/hypr/scripts/emoji-picker) utility for Wayland, using fuzzel, wl-copy, and a custom emoji list.
+
+*usage* :
+```
+bind = SUPER, semicolon, exec, ~/.config/hypr/scripts/emoji-picker
+```
+
+</details>
 ---
 
 ## 🔄 Continuous Improvement

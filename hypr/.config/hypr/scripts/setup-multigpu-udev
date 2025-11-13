@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
-#
+#!/bin/bash
+
 # setup-multigpu-udev
 # ---------------------------------------------------------
 # Create persistent /dev/dri symlinks for Intel + NVIDIA GPUs

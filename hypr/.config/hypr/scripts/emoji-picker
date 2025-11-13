@@ -1,0 +1,45 @@
+#!/bin/bash
+
+#															- mayank19o7
+# .oPYo.                 o  o      .oPYo.  o        8
+# 8.                               8    8           8
+# `boo   ooYoYo. .oPYo. o8 o8     o8YooP' o8 .oPYo. 8  .o  .oPYo. oPYo.
+# .P     8' 8  8 8    8  8  8      8       8 8    ' 8oP'   8oooo8 8  `'
+# 8      8  8  8 8    8  8  8      8       8 8    . 8 `b.  8.     8
+# `YooP' 8  8  8 `YooP'  8  8      8       8 `YooP' 8  `o. `Yooo' 8
+# :.....:..:..:..:.....::8 :..:::::..::::::..:.....:..::...:.....:..::::
+# ::::::::::::::::::::::oP :::::::::::::::::::::::::::::::::::::::::::::
+# ::::::::::::::::::::::..::::::::::::::::::::::::::::::::::::::::::::::
+# ----------------------------------------------------------------------
+# Emoji picker for Fuzzel + Hyprland
+# ----------------------------------------------------------------------
+
+
+# Location of your emoji list
+EMOJI_FILE="$HOME/.config/hypr/scripts/data/emojis.txt"
+
+# Ensure file exists
+if [ ! -f "$EMOJI_FILE" ]; then
+	notify-send "Emoji Picker" "Emoji list not found!"
+	exit 1
+fi
+
+# Load list
+EMOJIS=$(cat "$EMOJI_FILE")
+
+# Show picker and extract selected emoji
+CHOICE=$(
+	cat "$EMOJI_FILE" | fuzzel --match-mode fzf --dmenu \
+		--lines 10 \
+		--font "Noto Color Emoji:size=12" \
+		--width 50 \
+		--line-height 18 \
+		--prompt "Emoji > " \
+	| cut -d' ' -f1 | tr -d '\n'
+)
+
+# Copy selected emoji
+if [ -n "$CHOICE" ]; then
+	echo -n "$CHOICE" | wl-copy
+	notify-send "Emoji Copied" "$(echo -n "$CHOICE")"
+fi
