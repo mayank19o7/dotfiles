@@ -1,5 +1,9 @@
-#!/usr/bin/env bash
-# remove-multigpu-udev.sh — clean up Multi-GPU udev rules and symlinks
+#!/bin/bash
+
+# remove-multigpu-udev
+# ---------------------------------------------------------
+# clean up Multi-GPU udev rules and symlinks
+# ---------------------------------------------------------
 
 set -e
 
