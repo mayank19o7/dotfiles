@@ -9,6 +9,7 @@ Each module is **self-contained** with its own README and configuration, and man
 
 | Module                               | Description                                          |
 | :----------------------------------- | :--------------------------------------------------- |
+| [**Btop**](btop/README.md)           | A monitor of resources                               |
 | [**Dunst**](dunst/README.md)         | Notification daemon                                  |
 | [**Fastfetch**](fastfetch/README.md) | System information tool                              |
 | [**Fuzzel**](fuzzel/README.md)       | Application launcher with fuzzy search               |
@@ -61,7 +62,7 @@ eza fzf oh-my-zsh (with plugins)
 ttf-font-awesome ttf-jetbrains-mono-nerd ttf-fira-sans terminus-font
 
 # General utilities
-fastfetch yazi micro neovim dunst fuzzel wlogout
+fastfetch yazi micro neovim dunst fuzzel btop wlogout
 
 # Screenshot tools
 wl-clipboard grim slurp swappy
