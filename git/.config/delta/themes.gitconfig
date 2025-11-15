@@ -1,0 +1,59 @@
+#
+#										- mayank19o7
+#
+#          o   o             8        8   o
+#              8             8        8   8
+#  .oPYo. o8  o8P       .oPYo8 .oPYo. 8  o8P .oPYo.
+#  8    8  8   8  ooooo 8    8 8oooo8 8   8  .oooo8
+#  8    8  8   8        8    8 8.     8   8  8    8
+#  `YooP8  8   8        `YooP' `Yooo' 8   8  `YooP8
+# ::....8 :..::..::::::::.....::.....:..::..::.....:
+# :::ooP'.::::::::::::::::::::::::::::::::::::::::::
+# :::...::::::::::::::::::::::::::::::::::::::::::::
+
+[delta "kageiro"]
+	# Blame
+    blame-code-style = syntax
+    blame-format = "{author:<18} ({commit:>9}) {timestamp:^16}"
+    blame-palette = "#2E3440" "#3B4252" "#434C5E" "#4C566A"
+    # Commit hash
+    commit-decoration-style = "#57575F" box
+	# General appearance
+    dark = true
+	# File
+    file-added-label = [+]
+    file-copied-label = [==]
+    file-decoration-style = "#57575F" box ul
+    file-modified-label = [*]
+    file-removed-label = [-]
+    file-renamed-label = [->]
+    file-style = "#E6C384" bold
+	# Hunk header
+    hunk-header-style = omit
+    keep-plus-minus-markers = false
+	# Line numbers
+    line-numbers = true
+	line-numbers-left-style = brightred
+    line-numbers-minus-style = brightred italic
+    line-numbers-plus-style = brightgreen italic
+    line-numbers-right-style = brightgreen
+    line-numbers-zero-style = "#4C566A" italic
+	# Merge conflicts
+    merge-conflict-begin-symbol = ~
+    merge-conflict-end-symbol = ~
+    merge-conflict-ours-diff-header-decoration-style = "#57575F" box
+    merge-conflict-ours-diff-header-style = yellow bold
+    merge-conflict-theirs-diff-header-decoration-style = "#57575F" box
+    merge-conflict-theirs-diff-header-style = yellow bold
+	# Diff contents
+    minus-emph-style = black red
+    minus-non-emph-style = bold
+    minus-style = brightred
+    plus-emph-style = black green
+    plus-non-emph-style = bold
+    plus-style = brightgreen
+    side-by-side = false
+    syntax-theme = Nord
+	tabs = 4
+	whitespace-error-style = "#FB4934" reverse
+	zero-style = syntax

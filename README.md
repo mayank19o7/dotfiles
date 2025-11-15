@@ -13,6 +13,7 @@ Each module is **self-contained** with its own README and configuration, and man
 | [**Dunst**](dunst/README.md)         | Notification daemon                                  |
 | [**Fastfetch**](fastfetch/README.md) | System information tool                              |
 | [**Fuzzel**](fuzzel/README.md)       | Application launcher with fuzzy search               |
+| [**Git**](git/README.md)             | A git related tools and its configurations           |
 | [**GreetD**](greetd/README.md)       | Lightweight display/login manager with TUI interface |
 | [**Hyprland**](hypr/README.md)       | Dynamic tiling Wayland compositor and window manager |
 | [**Kitty**](kitty/README.md)         | GPU-accelerated terminal emulator                    |
@@ -62,7 +63,7 @@ eza fzf oh-my-zsh (with plugins)
 ttf-font-awesome ttf-jetbrains-mono-nerd ttf-fira-sans terminus-font
 
 # General utilities
-fastfetch yazi micro neovim dunst fuzzel btop wlogout
+fastfetch yazi micro neovim dunst fuzzel btop git-delta lazygit wlogout
 
 # Screenshot tools
 wl-clipboard grim slurp swappy

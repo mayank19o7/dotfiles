@@ -1,0 +1,9 @@
+[user]
+	email = mayank.sahu1907@gmail.com
+	name = mayank19o7
+
+[include]
+	path = ~/.config/delta/themes.gitconfig
+
+[delta]
+	features = kageiro

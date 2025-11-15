@@ -1,0 +1,41 @@
+#
+#                           - mayank19o7
+#
+#  8                              o   o
+#  8                                  8
+#  8 .oPYo. .oooo. o    o .oPYo. o8  o8P
+#  8 .oooo8   .dP  8    8 8    8  8   8
+#  8 8    8  oP'   8    8 8    8  8   8
+#  8 `YooP8 `Yooo' `YooP8 `YooP8  8   8
+# :..:.....::.....::....8 :....8 :..::..:
+# :::::::::::::::::::ooP'.::ooP'.::::::::
+# :::::::::::::::::::...::::...::::::::::
+
+git:
+  pagers:
+    - pager: delta --dark --paging=never
+    - colorArg: always
+gui:
+  nerdFontsVersion: "3"
+  authorColors:
+    '*': '#E6C384'
+  theme:
+    activeBorderColor:
+      - '#5FA29A'
+      - bold
+    inactiveBorderColor:
+      - '#57575F'
+    searchingActiveBorderColor:
+      - '#3E4E65'
+    optionsTextColor:
+      - '#8BA4B0'
+    selectedLineBgColor:
+      - '#1C1B1A'
+    cherryPickedCommitFgColor:
+      - '#5FA29A'
+    cherryPickedCommitBgColor:
+      - 'bg'
+    unstagedChangesColor:
+      - '#C4746E'
+    defaultFgColor:
+      - '#C3C4C6'
