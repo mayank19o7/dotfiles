@@ -1,6 +1,6 @@
 # 📊 BTOP Configuration
 
-A clean and minimal configuration for **btop**, managed using **GNU Stow**.
+A clean and minimal configuration for **[btop](https://github.com/aristocratos/btop)**, managed using **GNU Stow**.
 
 This directory contains my customized `btop` setup, including theme overrides and the main configuration file.
 
