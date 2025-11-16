@@ -1,0 +1,9 @@
+# Neon
+[color]
+gradient = 1
+gradient_count = 5
+gradient_color_1 = '#00eaff'
+gradient_color_2 = '#00aaff'
+gradient_color_3 = '#ff00e0'
+gradient_color_4 = '#d400ff'
+gradient_color_5 = '#7a00ff'

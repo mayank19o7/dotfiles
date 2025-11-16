@@ -1,0 +1,10 @@
+# Teal
+[color]
+gradient = 1
+gradient_count = 6
+gradient_color_1 = '#004f52'
+gradient_color_2 = '#008b80'
+gradient_color_3 = '#00c2ab'
+gradient_color_4 = '#00e6c9'
+gradient_color_5 = '#64f5e9'
+gradient_color_6 = '#baffff'
