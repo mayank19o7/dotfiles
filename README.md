@@ -10,6 +10,7 @@ Each module is **self-contained** with its own README and configuration, and man
 | Module                               | Description                                          |
 | :----------------------------------- | :--------------------------------------------------- |
 | [**Btop**](btop/README.md)           | A monitor of resources                               |
+| [**Cava**](cava/README.md)           | Console-based Audio Visualizer                       |
 | [**Dunst**](dunst/README.md)         | Notification daemon                                  |
 | [**Fastfetch**](fastfetch/README.md) | System information tool                              |
 | [**Fuzzel**](fuzzel/README.md)       | Application launcher with fuzzy search               |
@@ -56,19 +57,25 @@ greetd sddm
 # Hyprland and ecosystem
 hyprland hyprpaper hypridle hyprlock hyprpicker
 
-# Shell integration
-eza fzf oh-my-zsh (with plugins)
+# Shell Tools and Enhancements
+eza fzf oh-my-zsh # (with plugins)
 
 # Fonts
 ttf-font-awesome ttf-jetbrains-mono-nerd ttf-fira-sans terminus-font
 
-# General utilities
-fastfetch yazi micro neovim dunst fuzzel btop git-delta lazygit wlogout
+# Core utilities
+fastfetch yazi micro neovim dunst fuzzel wlogout
+
+# CLI Monitoring Tools
+btop git-delta lazygit
 
 # Screenshot tools
 wl-clipboard grim slurp swappy
 
-# HUD, visuals and icons
+# Visualizers / Fun tools
+cava
+
+# HUD, Icons and visual elements
 syshud brightnessctl papirus-icon-theme breeze-icons
 ```
 

@@ -1,0 +1,10 @@
+# Aurora gradient
+[color]
+gradient = 1
+gradient_count = 6
+gradient_color_1 = '#8aff00'
+gradient_color_2 = '#00ff9d'
+gradient_color_3 = '#00ffd5'
+gradient_color_4 = '#00a8ff'
+gradient_color_5 = '#0062ff'
+gradient_color_6 = '#5534ff'
