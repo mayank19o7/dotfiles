@@ -23,6 +23,7 @@ Each module is **self-contained** with its own README and configuration, and man
 | [**rEFInd**](refind/README.md)       | Boot manager for UEFI systems                        |
 | [**SDDM**](sddm/README.md)           | Simple Desktop Display Manager                       |
 | [**SysHud**](syshud/README.md)       | System HUD for volume and brightness indicators      |
+| [**Waypaper**](waypaper/README.md)   | Wallpaper setter                                     |
 | [**wlogout**](wlogout/README.md)     | Graphical logout and power menu                      |
 | [**Yazi**](yazi/README.md)           | Terminal file manager written in Rust                |
 | [**Zsh**](zsh/README.md)             | Unix shell and command interpreter                   |
@@ -75,8 +76,8 @@ wl-clipboard grim slurp swappy
 # Visualizers / Fun tools
 cava
 
-# HUD, Icons and visual elements
-syshud brightnessctl papirus-icon-theme breeze-icons
+# Wallpaper and apperence ( HUD, Icons etc.)
+syshud brightnessctl papirus-icon-theme breeze-icons waypaper
 ```
 
 </details>
