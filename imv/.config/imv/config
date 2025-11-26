@@ -1,0 +1,29 @@
+#
+#						- mayank19o7
+#   o
+#
+#  o8 ooYoYo. o    o
+#   8 8' 8  8 Y.  .P
+#   8 8  8  8 `b..d'
+#   8 8  8  8  `YP'
+# ::....:..:..::...:::::::::::::::::
+# ----------------------------------
+# X11/Wayland Image Viewer
+# ----------------------------------
+
+# ----------------------------------
+# Options
+# ----------------------------------
+[options]
+
+background = #212A3A
+
+overlay = true
+overlay_font = JetBrainsMono Nerd Font:14
+overlay_text = " [${imv_current_index}/${imv_file_count}] | `basename \"${imv_current_file}\"` | ${imv_scale}% "
+overlay_text_color = #BABBBC
+overlay_background_color = #000000
+overlay_background_alpha = 59
+overlay_position_bottom = true
+
+scaling_mode = full
