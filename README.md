@@ -17,6 +17,7 @@ Each module is **self-contained** with its own README and configuration, and man
 | [**Git**](git/README.md)             | A git related tools and its configurations           |
 | [**GreetD**](greetd/README.md)       | Lightweight display/login manager with TUI interface |
 | [**Hyprland**](hypr/README.md)       | Dynamic tiling Wayland compositor and window manager |
+| [**Imv**](imv/README.md)             | An X11/Wayland Image viewer                          |
 | [**Kitty**](kitty/README.md)         | GPU-accelerated terminal emulator                    |
 | [**Micro**](micro/README.md)         | Terminal-based text editor                           |
 | [**Neovim**](nvim/README.md)         | Extensible Vim-compatible text editor                |
@@ -72,6 +73,9 @@ btop git-delta lazygit
 
 # Screenshot tools
 wl-clipboard grim slurp swappy
+
+# Image viewer & media libraries
+imv libheif
 
 # Visualizers / Fun tools
 cava
