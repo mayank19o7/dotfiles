@@ -11,7 +11,7 @@
 # :.....::.....:..:::::.....::.....:..::..:.....:..:::..:.....:::..::::::
 # :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 # -----------------------------------------------------------------------
-# screenshot — unified script for grim, slurp, wl-copy, swappy, dunstify
+# screenshot — unified script for grim, slurp, wl-copy, satty, dunstify
 # -----------------------------------------------------------------------
 
 set -e
@@ -36,9 +36,9 @@ case "$mode" in
 		;;
 
 	area-edit)
-		# Select area and open in Swappy
+		# Select area and open in Satty
 		selection=$(slurp) || exit 0
-		grim -g "$selection" - | swappy -f - & disown
+		grim -g "$selection" - | satty -f - & disown
 		dunstify -i camera-photo "Screenshot" "Opened for editing ..."
 		;;
 
