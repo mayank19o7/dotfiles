@@ -1,6 +1,6 @@
 # 📸 `Screenshot Utility` 
 
-[screenshot](.config/hypr/scripts/screenshot) - a **unified utility** for **Wayland / Hyprland**, combining tools like `grim`, `slurp`, `wl-copy`, `swappy`, and `dunstify`.
+[screenshot](.config/hypr/scripts/screenshot) - a **unified utility** for **Wayland / Hyprland**, combining tools like `grim`, `slurp`, `wl-copy`, `satty`, and `dunstify`.
 Designed for a seamless screenshot experience — capture, copy, or edit with minimal effort.
 
 ---
@@ -12,7 +12,7 @@ This script provides **three modes** for different screenshot workflows:
 | Mode        | Description                                                                                    |
 | ----------- | ---------------------------------------------------------------------------------------------- |
 | `area-copy` | Select a rectangular area, save it, and copy the image to the clipboard.                       |
-| `area-edit` | Select a region and open it directly in **Swappy** for annotation or editing.                  |
+| `area-edit` | Select a region and open it directly in **Satty** for annotation or editing.                  |
 | `full`      | Capture the **currently active monitor** automatically (based on Hyprland’s active workspace). |
 
 All screenshots are saved in `~/Pictures/` with filenames formatted as:
@@ -32,7 +32,7 @@ Make sure the following packages are installed:
 | `grim`                | Capture Wayland screenshots           |
 | `slurp`               | Select screen region interactively    |
 | `wl-copy`             | Copy image data to clipboard          |
-| `swappy`              | Annotate or edit screenshots          |
+| `satty`               | Annotate or edit screenshots          |
 | `jq`                  | Parse JSON output from Hyprland       |
 | `hyprctl`             | Query active workspace / monitor info |
 | `dunstify`            | Send desktop notifications            |
@@ -50,7 +50,7 @@ screenshot [mode]
 
 ```bash
 screenshot area-copy   # Select area → save & copy to clipboard
-screenshot area-edit   # Select area → open in Swappy for editing
+screenshot area-edit   # Select area → open in Satty for editing
 screenshot full        # Capture full screen of active monitor
 ```
 

@@ -72,7 +72,7 @@ fastfetch yazi micro neovim dunst fuzzel wlogout
 btop git-delta lazygit
 
 # Screenshot tools
-wl-clipboard grim slurp swappy
+wl-clipboard grim slurp satty
 
 # Image viewer & media libraries
 imv libheif
