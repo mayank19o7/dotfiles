@@ -55,13 +55,6 @@ if [ -d "$ZSH" ] && [ -f "$ZSH/oh-my-zsh.sh" ]; then
 fi
 
 # -----------------------------------------------------
-# FZF key bindings: CTRL-R for fuzzy history search
-# -----------------------------------------------------
-if command -v fzf >/dev/null 2>&1; then
-	source <(fzf --zsh) 2>/dev/null || true
-fi
-
-# -----------------------------------------------------
 # Node version manager
 # -----------------------------------------------------
 if [ -f "/usr/share/nvm/init-nvm.sh" ]; then
