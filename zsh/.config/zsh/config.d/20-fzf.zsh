@@ -66,7 +66,7 @@ if command -v fzf >/dev/null 2>&1; then
 				fzf --preview 'dig {}' "$@"
 				;;
 			*)
-				fzf --preview "$show_preview_cmd" "$@"
+				fzf --preview "$PREVIEW_CMD" "$@"
 				;;
 		esac
 	}
