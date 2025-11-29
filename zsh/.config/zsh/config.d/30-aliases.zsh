@@ -53,7 +53,6 @@ alias mkdir='mkdir -pv'				# Make directories, show progress, create parents as 
 alias sha256='sha256sum'			# Compute SHA-256 checksum
 alias xtar='tar -xzvf'				# Extract tar archives
 alias ctar='tar -czvf'				# Create tar archives
-alias fzf="fzf --preview '$PREVIEW_CMD'" # Fuzzy finder Preview
 
 
 # -------------------------------

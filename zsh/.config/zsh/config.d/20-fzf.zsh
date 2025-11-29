@@ -9,15 +9,50 @@ if command -v fzf >/dev/null 2>&1; then
 	# Kitty image-clear escape
 	export KITTY_CLEAR_IMG=$'\x1b_Ga=d,d=A\x1b\\'
 
+	# Clear kitty icat preview after Ctrl-T fzf exits
+	clear_preview_after_fzf() {
+		printf "%b" "$KITTY_CLEAR_IMG" > /dev/tty
+	}
+
+	# Wrap Ctrl-T behaviour: run normal fzf-file-widget, then clear image
+	if zle -l | grep -q '^fzf-file-widget$'; then
+		fzf-file-widget-with-clear() {
+			zle fzf-file-widget				# call the original widget
+			clear_preview_after_fzf			# then clear the image
+			zle reset-prompt				# redraw prompt cleanly
+		}
+
+		zle -N fzf-file-widget-with-clear
+		bindkey '^T' fzf-file-widget-with-clear
+	fi
+
 	# Smart Preview (Images, PDF, Videos, Text)
 	export PREVIEW_CMD='
 		# Clear previous image first
-        printf "$KITTY_CLEAR_IMG"
+        printf "%b" "$KITTY_CLEAR_IMG"
 
 		if [[ -d {} ]]; then
 			eza --tree --color=always {} | head -200;
 		else
-			bat -n --color=always --line-range :500 {};
+			mime=$(file --mime-type -Lb {})
+			case "$mime" in
+				video/*)
+					ffprobe -hide_banner {} 2>&1 | head -50
+					;;
+				image/*)
+					kitty icat --clear \
+						--transfer-mode=memory \
+						--stdin=no \
+						--place=${FZF_PREVIEW_COLUMNS:-80}x${FZF_PREVIEW_LINES:-40}@0x0 \
+						--scale-up {}
+					;;
+				application/pdf)
+					pdftotext {} - | sed -n "1,200p"
+					;;
+				*)
+					bat -n --color=always --line-range :500 {}
+					;;
+			esac
 		fi
 	'
 
@@ -25,11 +60,9 @@ if command -v fzf >/dev/null 2>&1; then
     # GLOBAL FZF SETTINGS
     # -------------------------------------------------
 	export FZF_DEFAULT_OPTS="
-	--layout=reverse
-	--height=80%
-	--border
-	--ansi
-	--bind 'f2:toggle-preview'
+		--height=80%
+		--border
+		--ansi
 	"
 
 	# fd as the default source
@@ -50,7 +83,7 @@ if command -v fzf >/dev/null 2>&1; then
 		fd --type=d --hidden --exclude .git . "$1"
 	}
 
-	# Custom fzf completion preview depending on command
+	# command-aware preview
 	_fzf_comprun() {
 		local command=$1
 		shift
