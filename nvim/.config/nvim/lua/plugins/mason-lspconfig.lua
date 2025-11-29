@@ -7,6 +7,7 @@ return {
 				"eslint",
 				"jsonls",
 				"html",
+				"lemminx",
 				"lua_ls",
 				"ts_ls",
 			},
