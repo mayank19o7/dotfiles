@@ -54,7 +54,7 @@
     plus-non-emph-style = bold
     plus-style = brightgreen
     side-by-side = false
-    syntax-theme = Nord
+    syntax-theme = Vague
 	tabs = 4
 	whitespace-error-style = "#FB4934" reverse
 	zero-style = syntax

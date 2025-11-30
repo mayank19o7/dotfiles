@@ -9,6 +9,7 @@ Each module is **self-contained** with its own README and configuration, and man
 
 | Module                               | Description                                          |
 | :----------------------------------- | :--------------------------------------------------- |
+| [**Bat**](bat/README.md)             | A cat with wings                                     |
 | [**Btop**](btop/README.md)           | A monitor of resources                               |
 | [**Cava**](cava/README.md)           | Console-based Audio Visualizer                       |
 | [**Dunst**](dunst/README.md)         | Notification daemon                                  |
@@ -60,7 +61,7 @@ greetd sddm
 hyprland hyprpaper hypridle hyprlock hyprpicker
 
 # Shell Tools and Enhancements
-eza fzf oh-my-zsh # (with plugins)
+bat eza fzf oh-my-zsh # (with plugins)
 
 # Fonts
 ttf-font-awesome ttf-jetbrains-mono-nerd ttf-fira-sans terminus-font
