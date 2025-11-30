@@ -41,7 +41,6 @@ alias dot='cd ~/Dotfiles'			# Go to Dotfiles, shows list of dir and files
 # File Management
 # -------------------------------
 alias edit='$EDITOR'				# Open files with default editor
-alias bat='bat -A'					# bat command with option to show non-printable characters
 alias l='eza -l --icons=always'		# List files in long format with icons
 alias ls='eza -a --icons=always'	# List all files (including hidden) with icons
 alias ll='eza -al --icons=always'	# List all files in long format with icons
