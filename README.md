@@ -25,6 +25,7 @@ Each module is **self-contained** with its own README and configuration, and man
 | [**rEFInd**](refind/README.md)       | Boot manager for UEFI systems                        |
 | [**SDDM**](sddm/README.md)           | Simple Desktop Display Manager                       |
 | [**SysHud**](syshud/README.md)       | System HUD for volume and brightness indicators      |
+| [**Waybar**](waybar/README.md)       | A fast, modular, and highly customizable status bar  |
 | [**Waypaper**](waypaper/README.md)   | Wallpaper setter                                     |
 | [**wlogout**](wlogout/README.md)     | Graphical logout and power menu                      |
 | [**Yazi**](yazi/README.md)           | Terminal file manager written in Rust                |
@@ -82,7 +83,7 @@ imv libheif
 cava
 
 # Wallpaper and apperence ( HUD, Icons etc.)
-syshud brightnessctl papirus-icon-theme breeze-icons waypaper
+syshud brightnessctl papirus-icon-theme breeze-icons waybar waypaper
 ```
 
 </details>
