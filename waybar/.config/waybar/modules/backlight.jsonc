@@ -1,0 +1,27 @@
+{
+	"backlight": {
+		"device": "intel_backlight",
+		"format": "{icon} {percent}%",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"min-length": 7,
+		"max-length": 7,
+		// "on-scroll-up": "brightnessctl s +5%",
+		// "on-scroll-down": "brightnessctl s 5%-",
+		"scroll-step": 5,
+		"states": {
+			"critical": 70,
+			"warning": 60
+		},
+		"tooltip": false
+	}
+}
