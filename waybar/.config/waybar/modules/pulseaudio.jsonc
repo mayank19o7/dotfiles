@@ -1,0 +1,36 @@
+{
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-bluetooth": "{icon} 󰂰 {volume}%",
+		"format-bluetooth-muted": "󰖁 {icon} ",
+		"format-muted": "󰖁",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": [
+				"",
+				"",
+				"󰕾",
+				""
+			]
+		},
+		"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+		"on-click-right": "pavucontrol -t 3",
+		"scroll-step": 5,
+		"tooltip-format": "<b>Output device</b>: {desc}"
+	},
+	"pulseaudio#microphone": {
+		"format": "{format_source}",
+		"format-source": " {volume}%",
+		"format-source-muted": " ",
+		"on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+		"on-click-right": "pavucontrol -t 4",
+		"on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SOURCE@ 5%+",
+		"on-scroll-down": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SOURCE@ 5%-",
+		"tooltip-format": "<b>Input device</b>: {source_desc}"
+	}
+}
