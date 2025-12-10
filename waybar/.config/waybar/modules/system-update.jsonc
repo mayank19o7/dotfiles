@@ -1,0 +1,11 @@
+{
+	"custom/system-update": {
+		"format": "{}",
+		"interval": 3600,
+		"exec": "~/.config/waybar/scripts/system-updates-json",
+		"exec-if": "exit 0",
+		"return-type": "json",
+		"on-click": "kitty -e paru -Syu",
+		"signal": 1
+	}
+}
