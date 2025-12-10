@@ -1,0 +1,91 @@
+#!/usr/bin/bash
+
+# ----------------------------------------
+# Config
+# ----------------------------------------
+MAX_NAME_LENGTH=22
+MAX_VER_LENGTH=18
+
+# ----------------------------------------
+# Utility: truncate long text with ellipsis
+# ----------------------------------------
+shorten() {
+    local str="$1"
+    local max="$2"
+    (( ${#str} > max )) && echo "${str:0:$((max-1))}…" || echo "$str"
+}
+
+# ----------------------------------------
+# Fetch updates
+# ----------------------------------------
+pac_updates=$(checkupdates 2>/dev/null)
+aur_updates=$(paru -Qua 2>/dev/null)
+
+# ----------------------------------------
+# Format a single table row
+# ----------------------------------------
+format_row() {
+    local name old new
+    name=$(shorten "$1" $MAX_NAME_LENGTH)
+    old=$(shorten "$2" $MAX_VER_LENGTH)
+    new=$(shorten "$3" $MAX_VER_LENGTH)
+
+    # pad plain text to fixed widths
+    local name_pad old_pad new_pad
+    name_pad=$(printf "%-*s" "$MAX_NAME_LENGTH" "$name")
+    old_pad=$(printf "%-*s" "$MAX_VER_LENGTH" "$old")
+    new_pad=$(printf "%-*s" "$MAX_VER_LENGTH" "$new")
+
+    # wrap only the visible name in <b> so it looks bold
+    printf "<b>%s</b>  %s  %s\n" "$name_pad" "$old_pad" "$new_pad"
+}
+
+# ----------------------------------------
+# Count updates
+# ----------------------------------------
+count=$(printf "%s\n%s" "$pac_updates" "$aur_updates" | grep -c '.')
+
+# ----------------------------------------
+# Zero updates
+# ----------------------------------------
+if [[ "$count" -eq 0 ]]; then
+	color_text="<span foreground='green'>󰗠</span>"
+    printf '{"text":"%s", "tooltip":"System is fully updated"}' "$color_text"
+    exit 0
+fi
+
+# ----------------------------------------
+# Build rows for pacman + paru
+# ----------------------------------------
+build_table() {
+    echo "$1" | awk '{print $1, $2, $4}' | while read -r name old new; do
+        # skip if 'name' is empty (happens when no updates)
+        [[ -z "$name" ]] && continue
+        format_row "$name" "$old" "$new"
+    done
+}
+
+pac_table=$(build_table "$pac_updates")
+aur_table=$(build_table "$aur_updates")
+full_table="${pac_table}${aur_table}"
+
+# ----------------------------------------
+# Header
+# ----------------------------------------
+pkg_label=$(printf "%-*s" "$MAX_NAME_LENGTH" "Pkg Name")
+prev_label=$(printf "%-*s" "$MAX_VER_LENGTH" "Prev Version")
+next_label=$(printf "%-*s" "$MAX_VER_LENGTH" "Next Version")
+
+header="<b>${count}  Updates Available</b>\n\n"
+header+="<b>${pkg_label}  ${prev_label}  ${next_label}</b>\n"
+
+# underline length = sum of 3 columns + spacing
+underline_len=$((MAX_NAME_LENGTH + MAX_VER_LENGTH + MAX_VER_LENGTH + 4))
+header+="<b>$(printf '─%.0s' $(seq 1 $underline_len))</b>\n"
+
+# Final tooltip
+tooltip="${header}${full_table}"
+
+escaped_tooltip=$(printf "%s" "$tooltip" | sed ':a;N;$!ba;s/\n/\\n/g')
+
+printf '{"text":"󰚰 %s", "tooltip":"%s"}' "$count" "$escaped_tooltip"
