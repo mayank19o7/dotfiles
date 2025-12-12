@@ -1,0 +1,19 @@
+{
+	"bluetooth": {
+		"format": "󰂯 {status}",
+		"format-disabled": "󰂲",
+		"format-off": "󰂲",
+		"format-on": "󰂰",
+		"format-connected": "󰂱",
+		"min-length": 2,
+		"max-length": 2,
+		"on-click": "sh -c 'bluetoothctl show | grep -q \"Powered: yes\" && bluetoothctl power off || bluetoothctl power on'",
+		"on-click-right": "blueman-manager",
+		"tooltip-format-disabled": "Bluetooth Disabled",
+		"tooltip-format-off": "Bluetooth Off",
+		"tooltip-format-on": "Bluetooth Disconnected",
+		"tooltip-format": "Device: {device_alias}",
+		"tooltip-format-connected": "{num_connections} device(s) connected\n\n{device_enumerate}",
+		"tooltip-format-enumerate-connected": "{device_alias}\t[{device_battery_percentage}%]"
+	}
+}
