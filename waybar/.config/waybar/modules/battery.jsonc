@@ -1,6 +1,6 @@
 {
 	"battery": {
-		"interval": 2,
+		"interval": 5,
 		"states": {
 			"good": 90,
 			"warning": 20,
@@ -24,8 +24,8 @@
 		],
 		"min-length": 7,
 		"max-length": 7,
-		"tooltip-format": "<b>Discharging</b>: {time}",
-		"tooltip-format-charging": "<b>Charging</b>: {time}",
+		"tooltip-format": "Discharging: <b>{time}</b>",
+		"tooltip-format-charging": "Charging: <b>{time}</b>",
 		"tooltip-format-full": "<b>Full</b>",
 		"events": {
 			"on-discharging-warning": "notify-send 'Battery Low (20%)' -u critical -i 'battery-020'",
