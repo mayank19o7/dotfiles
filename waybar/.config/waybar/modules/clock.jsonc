@@ -1,0 +1,36 @@
+{
+	"clock#time": {
+		"format": " {:%H:%M}",
+		"min-length": 8,
+		"max-length": 8,
+		"tooltip-format": "Standard Time: <b>{:%I:%M %p (%Z)}</b>"
+	},
+	/*--------------
+	    calendar
+	--------------*/
+	"clock#date": {
+		"interval": 1,
+		"format": "󰸗 {:%m-%d}",
+		"min-length": 8,
+		"max-length": 8,
+		"tooltip-format": "{calendar}",
+		"calendar": {
+			"mode": "month",
+			"mode-mon-col": 3,
+			"weeks-pos": "right",
+			"on-scroll": 1,
+			"format": {
+				"months": "<span foreground='#eed49f'><b>{}</b></span>",
+				"days": "<span alpha='90%'>{}</span>",
+				"weeks": "<span foreground='#b7bdf8'><b>W{}</b></span>",
+				"weekdays": "<span alpha='75%'><i>{}</i></span>",
+				"today": "<span foreground='#ffffff'><b><u>{}</u></b></span>"
+			}
+		},
+		"actions": {
+			"on-click-right": "mode",
+			"on-scroll-up": "shift_down",
+			"on-scroll-down": "shift_up"
+		}
+	}
+}
