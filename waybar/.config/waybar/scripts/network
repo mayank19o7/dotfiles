@@ -1,14 +1,24 @@
 #!/bin/bash
+#										- mayank19o7
 #
+# o    o          o                         8
+# 8b   8          8                         8
+# 8`b  8 .oPYo.  o8P o   o   o .oPYo. oPYo. 8  .o
+# 8 `b 8 8oooo8   8  Y. .P. .P 8    8 8  `' 8oP'
+# 8  `b8 8.       8  `b.d'b.d' 8    8 8     8 `b.
+# 8   `8 `Yooo'   8   `Y' `Y'  `YooP' 8     8  `o.
+# ..:::..:.....:::..:::..::..:::.....:..::::..::...
+# :::::::::::::::::::::::::::::::::::::::::::::::::
+# -------------------------------------------------
 # Wi-Fi selector using nmcli + fzf
 # - Shows SSID, Band, Signal strength, Status
 # - Handles duplicate SSIDs safely
 # - Sorted by signal strength
-#
+# -------------------------------------------------
 
-# ----------------------------
+# -------------------------------------------------
 # Configuration
-# ----------------------------
+# -------------------------------------------------
 TIMEOUT=5
 
 SSID_WIDTH=20
@@ -16,16 +26,16 @@ BAND_WIDTH=5
 SIGNAL_WIDTH=6
 STATUS_WIDTH=9
 
-# ----------------------------
+# -------------------------------------------------
 # Ensure Wi-Fi radio is enabled
-# ----------------------------
+# -------------------------------------------------
 ensure_enabled() {
 	[[ "$(nmcli radio wifi)" == "enabled" ]] || nmcli radio wifi on
 }
 
-# ----------------------------
+# -------------------------------------------------
 # Scan and format Wi-Fi networks
-# ----------------------------
+# -------------------------------------------------
 get_networks() {
 	# Trigger a rescan (non-blocking)
 	nmcli device wifi rescan >/dev/null 2>&1
@@ -70,9 +80,9 @@ get_networks() {
 		}' <<< "$raw")
 }
 
-# ----------------------------
+# -------------------------------------------------
 # fzf selector UI
-# ----------------------------
+# -------------------------------------------------
 select_network() {
 	# Header must match column widths exactly
 	header=$(printf "%-*s │ %-*s │ %*s │ %-*s\n" \
@@ -87,10 +97,12 @@ select_network() {
 		--border=rounded \
 		--border-label=" Wi-Fi " \
 		--header="$header" \
-		--height=60% \
+		--highlight-line \
+		--info=inline-right \
+		--pointer= \
 		--reverse \
 		--prompt="> " \
-		--color=header:#a6e3a1 \
+		--color=header:#82dccc \
 		<<< "$networks"
 	)
 
@@ -106,9 +118,9 @@ select_network() {
 	}
 }
 
-# ----------------------------
+# -------------------------------------------------
 # Connect to selected network
-# ----------------------------
+# -------------------------------------------------
 connect_network() {
 	if nmcli --ask device wifi connect "$ssid"; then
 		notify-send "Wi-Fi" "Connected to $ssid" -i network-wireless-on
@@ -117,9 +129,9 @@ connect_network() {
 	fi
 }
 
-# ----------------------------
+# -------------------------------------------------
 # Main flow
-# ----------------------------
+# -------------------------------------------------
 main() {
 	tput civis            # hide cursor
 	ensure_enabled
