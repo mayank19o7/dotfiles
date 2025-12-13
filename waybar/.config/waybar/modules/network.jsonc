@@ -1,16 +1,16 @@
 {
 	"network": {
 		"interval": 1,
-		"format": " ",
-		"format-ethernet": "󰈀 ",
+		"format": "",
+		"format-ethernet": "󰈀",
 		"format-wifi": "{icon}",
-		"format-disconnected": "󰤯 ",
-		"format-disabled": "󰤮 ",
+		"format-disconnected": "󰤯",
+		"format-disabled": "󰤮",
 		"format-icons": [
-			"󰤟 ",
-			"󰤢 ",
-			"󰤥 ",
-			"󰤨 "
+			"󰤟",
+			"󰤢",
+			"󰤥",
+			"󰤨"
 		],
 		"min-length": 2,
 		"max-length": 2,
