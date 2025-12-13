@@ -1,4 +1,15 @@
-#!/usr/bin/bash
+#!/bin/bash
+#																			- mayank19o7
+#
+# .oPYo.                 o                                          8          o
+# 8                      8                                          8          8
+# `Yooo. o    o .oPYo.  o8P .oPYo. ooYoYo.       o    o .oPYo. .oPYo8 .oPYo.  o8P .oPYo.
+#     `8 8    8 Yb..     8  8oooo8 8' 8  8 ooooo 8    8 8    8 8    8 .oooo8   8  8oooo8
+#      8 8    8   'Yb.   8  8.     8  8  8       8    8 8    8 8    8 8    8   8  8.
+# `YooP' `YooP8 `YooP'   8  `Yooo' 8  8  8       `YooP' 8YooP' `YooP' `YooP8   8  `Yooo'
+# :.....::....8 :.....:::..::.....:..:..:..:::::::.....:8 ....::.....::.....:::..::.....:
+# :::::::::ooP'.::::::::::::::::::::::::::::::::::::::::8 :::::::::::::::::::::::::::::::
+# :::::::::...::::::::::::::::::::::::::::::::::::::::::..:::::::::::::::::::::::::::::::
 
 # ----------------------------------------
 # Config
@@ -76,12 +87,12 @@ pkg_label=$(printf "%-*s" "$MAX_NAME_LENGTH" "Pkg Name")
 prev_label=$(printf "%-*s" "$MAX_VER_LENGTH" "Prev Version")
 next_label=$(printf "%-*s" "$MAX_VER_LENGTH" "Next Version")
 
-header="<b>${count}  Updates Available</b>\n\n"
+header="<span foreground='#eed49f'><big></big> ${count}</span> <b>Updates Available</b>\n\n"
 header+="<b>${pkg_label}  ${prev_label}  ${next_label}</b>\n"
 
 # underline length = sum of 3 columns + spacing
 underline_len=$((MAX_NAME_LENGTH + MAX_VER_LENGTH + MAX_VER_LENGTH + 4))
-header+="<b>$(printf '─%.0s' $(seq 1 $underline_len))</b>\n"
+header+="<span foreground='#57575f'><b>$(printf '─%.0s' $(seq 1 $underline_len))</b></span>\n"
 
 # Final tooltip
 tooltip="${header}${full_table}"
