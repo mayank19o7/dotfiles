@@ -1,0 +1,24 @@
+{
+	"network": {
+		"interval": 1,
+		"format": " ",
+		"format-ethernet": "󰈀 ",
+		"format-wifi": "{icon}",
+		"format-disconnected": "󰤯 ",
+		"format-disabled": "󰤮 ",
+		"format-icons": [
+			"󰤟 ",
+			"󰤢 ",
+			"󰤥 ",
+			"󰤨 "
+		],
+		"min-length": 2,
+		"max-length": 2,
+		"on-click": "nmcli radio wifi off && notify-send 'Wi-Fi Disabled' -i 'network-wireless-off' -r 1125",
+		"on-click-right": "kitty --title \"network-selector\" -e ~/.config/waybar/scripts/network",
+		"tooltip-format-disconnected": "Wi-Fi Disconnected",
+		"tooltip-format-disabled": "Wi-Fi Disabled",
+		"tooltip-format-wifi": "Network: <b>{essid}</b>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>\n\n<span foreground='#eed49f'> {bandwidthDownBytes}</span>\t<span foreground='#b7bdf8'> {bandwidthUpBytes}</span>",
+		"tooltip-format-ethernet": "Network: <b>{essid}</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>\n\n<span foreground='#eed49f'> {bandwidthDownBytes}</span>\t<span foreground='#b7bdf8'> {bandwidthUpBytes}</span>"
+	}
+}

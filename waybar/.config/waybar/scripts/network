@@ -1,0 +1,132 @@
+#!/bin/bash
+#
+# Wi-Fi selector using nmcli + fzf
+# - Shows SSID, Band, Signal strength, Status
+# - Handles duplicate SSIDs safely
+# - Sorted by signal strength
+#
+
+# ----------------------------
+# Configuration
+# ----------------------------
+TIMEOUT=5
+
+SSID_WIDTH=20
+BAND_WIDTH=5
+SIGNAL_WIDTH=6
+STATUS_WIDTH=9
+
+# ----------------------------
+# Ensure Wi-Fi radio is enabled
+# ----------------------------
+ensure_enabled() {
+	[[ "$(nmcli radio wifi)" == "enabled" ]] || nmcli radio wifi on
+}
+
+# ----------------------------
+# Scan and format Wi-Fi networks
+# ----------------------------
+get_networks() {
+	# Trigger a rescan (non-blocking)
+	nmcli device wifi rescan >/dev/null 2>&1
+
+	# Fetch networks:
+	# IN-USE | SSID | FREQ | SIGNAL
+	# Sorted by signal strength (desc)
+	raw=$(nmcli -t -f IN-USE,SSID,FREQ,SIGNAL device wifi list \
+		| sort -t: -k4 -nr)
+
+	[[ -z "$raw" ]] && exit 1
+
+	# Build display table
+	# Column 1 (hidden): REAL SSID (used for connection)
+	# Column 2 (visible): aligned display columns
+	networks=$(awk -F: \
+		-v SW="$SSID_WIDTH" \
+		-v BW="$BAND_WIDTH" \
+		-v GW="$SIGNAL_WIDTH" \
+		-v TW="$STATUS_WIDTH" '
+		# Skip empty SSIDs
+		$2 != "" {
+			# Detect band from frequency (MHz)
+			freq = $3
+			if (freq < 2500)      band = "2.4G"
+			else if (freq < 5900) band = "5G"
+			else                  band = "6G"
+
+			# Prepare display values
+			display_ssid = substr($2, 1, SW)
+			signal = sprintf("%3d%%", $4)
+			status = ($1=="*") ? "connected ✓" : ""
+
+			# Output:
+			# REAL_SSID<TAB>FORMATTED_DISPLAY
+			printf "%s\t%-*s │ %-*s │ %*s │ %-*s\n",
+				$2,
+				SW, display_ssid,
+				BW, band,
+				GW, signal,
+				TW, status
+		}' <<< "$raw")
+}
+
+# ----------------------------
+# fzf selector UI
+# ----------------------------
+select_network() {
+	# Header must match column widths exactly
+	header=$(printf "%-*s │ %-*s │ %*s │ %-*s\n" \
+		"$SSID_WIDTH" "SSID" \
+		"$BAND_WIDTH" "Band" \
+		"$SIGNAL_WIDTH" "Signal" \
+		"$STATUS_WIDTH" "Status")
+
+	choice=$(fzf \
+		--delimiter='\t' \
+		--with-nth=2 \
+		--border=rounded \
+		--border-label=" Wi-Fi " \
+		--header="$header" \
+		--height=60% \
+		--reverse \
+		--prompt="> " \
+		--color=header:#a6e3a1 \
+		<<< "$networks"
+	)
+
+	[[ -z "$choice" ]] && exit 1
+
+	# Extract the real SSID (hidden column)
+	ssid=$(cut -f1 <<< "$choice")
+
+	# Avoid reconnecting to the active network
+	grep -q "connected" <<< "$choice" && {
+		notify-send "Wi-Fi" "Already connected to $ssid"
+		exit 0
+	}
+}
+
+# ----------------------------
+# Connect to selected network
+# ----------------------------
+connect_network() {
+	if nmcli --ask device wifi connect "$ssid"; then
+		notify-send "Wi-Fi" "Connected to $ssid" -i network-wireless-on
+	else
+		notify-send "Wi-Fi" "Failed to connect to $ssid" -i network-error
+	fi
+}
+
+# ----------------------------
+# Main flow
+# ----------------------------
+main() {
+	tput civis            # hide cursor
+	ensure_enabled
+	get_networks
+	tput cnorm            # restore cursor
+	select_network
+	connect_network
+}
+
+main
