@@ -1,0 +1,14 @@
+{
+	"memory": {
+		"interval": 5,
+		"format": "󰘚 {percentage}%",
+		"min-length": 6,
+		"max-length": 6,
+		"states": {
+			"warning": 75,
+			"critical": 90
+		},
+		"tooltip-format": "Memory Used: {used:0.2f} / {total:0.2f} GB",
+		"on-click-right": "hyprctl clients | grep -q 'title: memory' && hyprctl dispatch focuswindow 'title:^(memory)$' || kitty -T memory -e btop -p 2"
+	}
+}
