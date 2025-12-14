@@ -1,0 +1,13 @@
+{
+	"cpu": {
+		"interval": 1,
+		"format": " {usage}%",
+		"min-length": 6,
+		"max-length": 6,
+		"states": {
+			"warning": 75,
+			"critical": 90
+		},
+		"on-click-right": "hyprctl clients | grep -q taskManager && hyprctl dispatch togglespecialworkspace taskManager || kitty -T taskManager -e btop"
+	}
+}
