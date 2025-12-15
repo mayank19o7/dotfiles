@@ -12,8 +12,8 @@
 			"󰤥",
 			"󰤨"
 		],
-		"min-length": 2,
-		"max-length": 2,
+		"min-length": 3,
+		"max-length": 3,
 		"on-click": "nmcli radio wifi off && notify-send 'Wi-Fi Disabled' -i 'network-wireless-off' -r 1125",
 		"on-click-right": "kitty --title \"network-selector\" -e ~/.config/waybar/scripts/network",
 		"tooltip-format-disconnected": "Wi-Fi Disconnected",
