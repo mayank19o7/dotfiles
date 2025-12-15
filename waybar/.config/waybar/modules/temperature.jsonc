@@ -1,0 +1,17 @@
+{
+	"temperature": {
+		"interval": 5,
+		"format": "{icon} {temperatureC}°C",
+		"format-icons": [
+			"󱃃",
+			"󰔏",
+			"󱃂"
+		],
+		"min-length": 6,
+		"max-length": 6,
+		"warning-threshold": 70,
+		"critical-threshold": 80,
+		"tooltip-format": "Temp in Fahrenheit: {temperatureF}°F",
+		"on-click-right": "hyprctl clients | grep -q 'title: cpu' && hyprctl dispatch focuswindow 'title:^(cpu)$' || kitty -T cpu -e btop -p 1"
+	}
+}
