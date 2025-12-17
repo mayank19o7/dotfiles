@@ -1,0 +1,18 @@
+{
+	"hyprland/window": {
+		"format": "{}",
+		"max-length": 50,
+		"rewrite": {
+			"": "  Desktop",
+			"zsh": "  Terminal",
+			"kitty": "  Terminal",
+			"(.*)~(.*)": "  ~$2",
+			"(.*) - Vivaldi": "  $1",
+			"(.*)YouTube(.*)": "  YouTube",
+			"(.*)Microsoft Teams(.*)": "󰊻  Teams",
+			"edit": "  Editor",
+			"lg": "  LazyGit"
+		},
+		"separate-outputs": true
+	}
+}
