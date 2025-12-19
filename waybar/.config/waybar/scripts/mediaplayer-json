@@ -1,0 +1,139 @@
+#!/bin/bash
+#															- mayank19o7
+#
+#  o     o             8  o         .oPYo. 8
+#  8b   d8             8            8    8 8
+#  8`b d'8 .oPYo. .oPYo8 o8 .oPYo. o8YooP' 8 .oPYo. o    o .oPYo. oPYo.
+#  8 `o' 8 8oooo8 8    8  8 .oooo8  8      8 .oooo8 8    8 8oooo8 8  `'
+#  8     8 8.     8    8  8 8    8  8      8 8    8 8    8 8.     8
+#  8     8 `Yooo' `YooP'  8 `YooP8  8      8 `YooP8 `YooP8 `Yooo' 8
+# :..::::..:.....::.....::..:.....::..:::::..:.....::....8 :.....:..::::
+# ::::::::::::::::::::::::::::::::::::::::::::::::::::ooP'.:::::::::::::
+# ::::::::::::::::::::::::::::::::::::::::::::::::::::...:::::::::::::::
+
+# ----------------------------------------
+# Config
+# ----------------------------------------
+MAX_TEXT_LENGTH=40
+
+# ----------------------------------------
+# Icons
+# ----------------------------------------
+PLAYER_ICON_DEFAULT="󰝚"
+PLAYER_ICON_MPV="󰐹"
+PLAYER_ICON_SPOTIFY=""
+
+STATUS_ICON_PLAYING="󰝚"
+STATUS_ICON_PAUSED="󰐎"
+STATUS_ICON_STOPPED=""
+
+# ----------------------------------------
+# Utility: truncate long text
+# ----------------------------------------
+shorten() {
+    local str="$1" max="$2"
+    (( ${#str} > max )) && echo "${str:0:$((max-1))}" || echo "$str"
+}
+
+# ----------------------------------------
+# Player check
+# ----------------------------------------
+status=$(playerctl status 2>/dev/null) || exit 0
+[[ "$status" == "Stopped" ]] && exit 0
+
+
+# ----------------------------------------
+# Metadata
+# ----------------------------------------
+player=$(playerctl -l | head -n1)
+artist=$(playerctl metadata artist 2>/dev/null)
+title=$(playerctl metadata title 2>/dev/null)
+album=$(playerctl metadata album 2>/dev/null)
+position=$(playerctl position --format '{{ duration(position) }}' 2>/dev/null)
+length=$(playerctl metadata --format '{{ duration(mpris:length) }}' 2>/dev/null)
+
+# ----------------------------------------
+# Icon selection
+# ----------------------------------------
+case "$player" in
+    *spotify*) player_icon="$PLAYER_ICON_SPOTIFY" ;;
+    *mpv*)     player_icon="$PLAYER_ICON_MPV" ;;
+    *)         player_icon="$PLAYER_ICON_DEFAULT" ;;
+esac
+
+case "$status" in
+    Playing) status_icon="$STATUS_ICON_PLAYING" ;;
+    Paused)  status_icon="$STATUS_ICON_PAUSED" ;;
+    *)       status_icon="$STATUS_ICON_STOPPED" ;;
+esac
+
+# ----------------------------------------
+# Bar text (truncate ONLY here)
+# ----------------------------------------
+if [[ -n "$title" && -n "$artist" ]]; then
+    bar_content="$title - $artist"
+elif [[ -n "$title" ]]; then
+    bar_content="$title"
+elif [[ -n "$artist" ]]; then
+    bar_content="$artist"
+else
+    bar_content=""
+fi
+
+short_text=$(shorten "$bar_content" "$MAX_TEXT_LENGTH")
+text="$([[ "$status" == "Paused" ]] && echo "$status_icon" || echo "$player_icon")  $short_text"
+
+# ----------------------------------------
+# Tooltip header (styled + plain)
+# ----------------------------------------
+build_header() {
+    local icon="$1" status="$2" pos="$3" len="$4"
+    local plain="$icon  $status"
+    local styled="<span foreground='#eed49f'>$icon</span>  $status"
+
+    if [[ -n "$pos" && -n "$len" ]]; then
+        plain+=":  [$pos/$len]"
+        styled+=":  [$pos/$len]"
+    fi
+
+    echo "$plain|$styled"
+}
+
+IFS='|' read -r header_plain header_styled <<< \
+    "$(build_header "$player_icon" "$status" "$position" "$length")"
+
+tooltip="$header_styled\n"
+
+# ----------------------------------------
+# Tooltip lines
+# ----------------------------------------
+tooltip_lines=()
+[[ -n "$title"  ]] && tooltip_lines+=("󰎆  <b><i>$title</i></b>")
+[[ -n "$artist" ]] && tooltip_lines+=("  $artist")
+[[ -n "$album"  ]] && tooltip_lines+=("󰀥  <b>$album</b>")
+
+# ----------------------------------------
+# Underline length (header + metadata)
+# ----------------------------------------
+underline_len=${#header_plain}
+
+[[ -n "$title"  ]] && (( ${#title}  + 3 > underline_len )) && underline_len=$(( ${#title}  + 3 ))
+[[ -n "$artist" ]] && (( ${#artist} + 3 > underline_len )) && underline_len=$(( ${#artist} + 3 ))
+[[ -n "$album"  ]] && (( ${#album}  + 3 > underline_len )) && underline_len=$(( ${#album}  + 3 ))
+
+separator="<span foreground='#57575f'><b>$(printf '─%.0s' $(seq 1 "$underline_len"))</b></span>"
+
+# ----------------------------------------
+# Assemble tooltip (no trailing newline)
+# ----------------------------------------
+tooltip+="$separator"
+for i in "${!tooltip_lines[@]}"; do
+    tooltip+="\n${tooltip_lines[i]}"
+done
+
+escaped_tooltip=$(printf "%s" "$tooltip" | sed ':a;N;$!ba;s/\n/\\n/g')
+
+# ----------------------------------------
+# Output
+# ----------------------------------------
+printf '{"text":"%s", "tooltip":"%s"}' "$text" "$escaped_tooltip"

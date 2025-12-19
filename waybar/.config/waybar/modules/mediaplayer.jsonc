@@ -1,0 +1,12 @@
+{
+	"custom/media": {
+		"format": "{}",
+		"interval": 1,
+		"exec": "~/.config/waybar/scripts/mediaplayer-json",
+		"exec-if": "exit 0",
+		"return-type": "json",
+		"on-click": "playerctl play-pause",
+		"on-click-right": "playerctl next",
+		"on-click-middle": "playerctl previous"
+	}
+}
