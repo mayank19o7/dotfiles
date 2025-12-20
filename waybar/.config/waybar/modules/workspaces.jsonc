@@ -1,0 +1,49 @@
+{
+	"group/workspaces": {
+		"orientation": "inherit",
+		"modules": [
+			"custom/left_div#one",
+			"custom/left_inv",
+			"group/drawerWorkspaces",
+			"custom/right_inv",
+			"custom/right_div#one"
+		]
+	},
+	"group/drawerWorkspaces": {
+		"orientation": "inherit",
+		"drawer": {
+			"transition-duration": 250
+		},
+		"modules": [
+			"custom/activeworkspace",
+			"hyprland/workspaces"
+		]
+	},
+	"custom/activeworkspace": {
+		"interval": 1,
+		"format": "{}",
+		"exec": "hyprctl activeworkspace -j | jq -r .id",
+		"min-length": 2,
+		"on-scroll-up": "hyprctl dispatch workspace +1",
+		"on-scroll-down": "hyprctl dispatch workspace -1",
+		"tooltip": false
+	},
+	"hyprland/workspaces": {
+		"active-only": false,
+		"all-outputs": true,
+		"cursor": true,
+		"format": "{icon}",
+		"format-icons": {
+			"active": "",
+			"default": "",
+			"special": ""
+		},
+		"on-click": "activate",
+		"on-scroll-up": "hyprctl dispatch workspace +1",
+		"on-scroll-down": "hyprctl dispatch workspace -1",
+		"persistent-workspaces": {
+			"*": 4
+		},
+		"show-special": true
+	}
+}
