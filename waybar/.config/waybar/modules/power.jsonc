@@ -1,8 +1,26 @@
 {
+	"group/power": {
+		"orientation": "inherit",
+		"drawer": {
+			"transition-duration": 100,
+			"transition-left-to-right": false
+		},
+		"modules": [
+			"custom/power",
+			"custom/reboot"
+		]
+	},
 	"custom/power": {
 		"format": "",
+		"min-length": 2,
 		"on-click": "systemctl poweroff",
 		// "on-click": "wlogout",
 		"tooltip-format": "<b>Power Off</b>"
+	},
+	"custom/reboot": {
+		"format": "",
+		"min-length": 2,
+		"on-click": "systemctl reboot",
+		"tooltip-format": "<b>Reboot</b>"
 	}
 }
