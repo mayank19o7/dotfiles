@@ -1,11 +1,13 @@
 {
 	"group/user": {
+		"drawer": {
+			"transition-duration": 100
+		},
 		"orientation": "horizontal",
 		"modules": [
 			"custom/icon",
 			"custom/user"
-		],
-		"drawer": {}
+		]
 	},
 	"custom/icon": {
 		"format": "",
