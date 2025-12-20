@@ -1,14 +1,14 @@
 {
 	"group/audiocontrol": {
+		"drawer": {
+			"transition-duration": 100,
+			"transition-left-to-right": false
+		},
 		"orientation": "horizontal",
 		"modules": [
 			"pulseaudio",
 			"pulseaudio#microphone"
-		],
-		"drawer": {
-			"transition-duration": 100,
-			"transition-left-to-right": false
-		}
+		]
 	},
 	"pulseaudio": {
 		"format": "{icon} {volume}%",
