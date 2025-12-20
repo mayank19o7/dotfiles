@@ -1,0 +1,26 @@
+{
+	"group/user": {
+		"orientation": "horizontal",
+		"modules": [
+			"custom/icon",
+			"custom/user"
+		],
+		"drawer": {}
+	},
+	"custom/icon": {
+		"format": "",
+		"min-length": 3,
+		"max-length": 3,
+		"tooltip": false
+	},
+	/*--------------
+	    username
+	--------------*/
+	"custom/user": {
+		"exec": "id -un",
+		"format": "{}",
+		"min-length": 4,
+		"max-length": 4,
+		"tooltip": false
+	}
+}
