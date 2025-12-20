@@ -1,4 +1,15 @@
 {
+	"group/audiocontrol": {
+		"orientation": "horizontal",
+		"modules": [
+			"pulseaudio",
+			"pulseaudio#microphone"
+		],
+		"drawer": {
+			"transition-duration": 100,
+			"transition-left-to-right": false
+		}
+	},
 	"pulseaudio": {
 		"format": "{icon} {volume}%",
 		"format-bluetooth": "{icon} 󰂰 {volume}%",
@@ -18,6 +29,8 @@
 				""
 			]
 		},
+		"min-length": 6,
+		"max-length": 6,
 		"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
 		"on-click-right": "pavucontrol -t 3",
 		"scroll-step": 5,
@@ -27,6 +40,8 @@
 		"format": "{format_source}",
 		"format-source": " {volume}%",
 		"format-source-muted": " ",
+		"min-length": 6,
+		"max-length": 6,
 		"on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
 		"on-click-right": "pavucontrol -t 4",
 		"on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SOURCE@ 5%+",
