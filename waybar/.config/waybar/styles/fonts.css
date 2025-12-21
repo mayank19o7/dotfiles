@@ -1,0 +1,42 @@
+/* Base font settings */
+* {
+	font-family:
+		"JetBrainsMono Nerd Font",
+		FontAwesome,
+		Roboto,
+		Helvetica,
+		Arial,
+		sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+/* Normal-weight text overrides */
+#custom-user,
+#custom-media,
+#window label,
+tooltip label {
+	font-weight: normal;
+}
+
+/* 22px text */
+#custom-left_div,
+#custom-left_inv,
+#custom-center_div,
+#custom-right_div,
+#custom-right_inv {
+	font-size: 22px;
+}
+
+/* 20px text */
+#workspaces button.active label,
+#workspaces button.focused label,
+#custom-activeworkspace {
+	font-size: 20px;
+}
+
+/* 18px text */
+#custom-reboot,
+#custom-power {
+	font-size: 18px;
+}
