@@ -28,15 +28,21 @@ STATUS_ICON_PAUSED="󰐎"
 STATUS_ICON_STOPPED=""
 
 # ----------------------------------------
-# Utility: truncate long text
+# Utilities
 # ----------------------------------------
 shorten() {
     local str="$1" max="$2"
-    (( ${#str} > max )) && echo "${str:0:$((max-1))}" || echo "$str"
+    (( ${#str} > max )) && printf '%s' "${str:0:$((max-1))}…" || printf '%s' "$str"
+}
+
+pango_escape() {
+    sed -e 's/&/\&amp;/g' \
+        -e 's/</\&lt;/g' \
+        -e 's/>/\&gt;/g'
 }
 
 # ----------------------------------------
-# Player check
+# Player status
 # ----------------------------------------
 status=$(playerctl status 2>/dev/null) || exit 0
 [[ "$status" == "Stopped" ]] && exit 0
@@ -46,9 +52,11 @@ status=$(playerctl status 2>/dev/null) || exit 0
 # Metadata
 # ----------------------------------------
 player=$(playerctl -l | head -n1)
-artist=$(playerctl metadata artist 2>/dev/null)
-title=$(playerctl metadata title 2>/dev/null)
-album=$(playerctl metadata album 2>/dev/null)
+
+artist=$(shorten "$(playerctl metadata artist 2>/dev/null | pango_escape)" "$MAX_TEXT_LENGTH")
+title=$(shorten "$(playerctl metadata title 2>/dev/null | pango_escape)" "$MAX_TEXT_LENGTH")
+album=$(shorten "$(playerctl metadata album 2>/dev/null | pango_escape)" "$MAX_TEXT_LENGTH")
+
 position=$(playerctl position --format '{{ duration(position) }}' 2>/dev/null)
 length=$(playerctl metadata --format '{{ duration(mpris:length) }}' 2>/dev/null)
 
@@ -81,7 +89,10 @@ else
 fi
 
 short_text=$(shorten "$bar_content" "$MAX_TEXT_LENGTH")
-text="$([[ "$status" == "Paused" ]] && echo "$status_icon" || echo "$player_icon")  $short_text"
+display_icon="$player_icon"
+[[ "$status" == "Paused" ]] && display_icon="$status_icon"
+
+text="$display_icon  $short_text"
 
 # ----------------------------------------
 # Tooltip header (styled + plain)
@@ -96,7 +107,7 @@ build_header() {
         styled+=":  [$pos/$len]"
     fi
 
-    echo "$plain|$styled"
+    printf '%s|%s' "$plain" "$styled"
 }
 
 IFS='|' read -r header_plain header_styled <<< \
@@ -113,7 +124,7 @@ tooltip_lines=()
 [[ -n "$album"  ]] && tooltip_lines+=("󰀥  <b>$album</b>")
 
 # ----------------------------------------
-# Underline length (header + metadata)
+# Separator length
 # ----------------------------------------
 underline_len=${#header_plain}
 
