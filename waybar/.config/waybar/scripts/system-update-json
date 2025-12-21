@@ -21,9 +21,8 @@ MAX_VER_LENGTH=18
 # Utility: truncate long text with ellipsis
 # ----------------------------------------
 shorten() {
-    local str="$1"
-    local max="$2"
-    (( ${#str} > max )) && echo "${str:0:$((max-1))}…" || echo "$str"
+    local str="$1" max="$2"
+    (( ${#str} > max )) && printf '%s' "${str:0:$((max-1))}…" || printf '%s' "$str"
 }
 
 # ----------------------------------------
