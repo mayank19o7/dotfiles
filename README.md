@@ -20,6 +20,7 @@ Each module is **self-contained** with its own README and configuration, and man
 | [**Hyprland**](hypr/README.md)       | Dynamic tiling Wayland compositor and window manager |
 | [**Imv**](imv/README.md)             | An X11/Wayland Image viewer                          |
 | [**Kitty**](kitty/README.md)         | GPU-accelerated terminal emulator                    |
+| [**Matugen**](matugen/README.md)     | A cross-platform material you color generation tool  |
 | [**Micro**](micro/README.md)         | Terminal-based text editor                           |
 | [**Neovim**](nvim/README.md)         | Extensible Vim-compatible text editor                |
 | [**rEFInd**](refind/README.md)       | Boot manager for UEFI systems                        |
@@ -58,16 +59,25 @@ refind
 # Login and display managers
 greetd sddm
 
-# Hyprland and ecosystem
-hyprland hyprpaper hypridle hyprlock hyprpicker
-
-# Shell Tools and Enhancements
-bat eza fzf oh-my-zsh # (with plugins)
-
 # Fonts
 ttf-font-awesome ttf-jetbrains-mono-nerd ttf-fira-sans terminus-font
 
-# Core utilities
+# Hyprland and ecosystem
+hyprland hyprpaper hypridle hyprlock hyprpicker
+
+# Panels, HUDs & system bars
+waybar syshud brightnessctl
+
+# Theming, colors & appearance
+matugen waypaper
+
+# Icons & visual assets
+papirus-icon-theme breeze-icons
+
+# Shell Tools & Enhancements
+bat eza fzf oh-my-zsh # (with plugins)
+
+# Core utilities & apps
 fastfetch yazi micro neovim dunst fuzzel wlogout
 
 # CLI Monitoring Tools
@@ -82,8 +92,6 @@ imv libheif
 # Visualizers / Fun tools
 cava
 
-# Wallpaper and apperence ( HUD, Icons etc.)
-syshud brightnessctl papirus-icon-theme breeze-icons waybar waypaper
 ```
 
 </details>
