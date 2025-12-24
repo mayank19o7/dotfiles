@@ -1,0 +1,19 @@
+#
+#                                          - mayank19o7
+#  o     o          o
+#  8b   d8          8
+#  8`b d'8 .oPYo.  o8P o    o .oPYo. .oPYo. odYo.
+#  8 `o' 8 .oooo8   8  8    8 8    8 8oooo8 8' `8
+#  8     8 8    8   8  8    8 8    8 8.     8   8
+#  8     8 `YooP8   8  `YooP' `YooP8 `Yooo' 8   8
+# :..::::..:.....:::..::.....::....8 :.....:..::..:::::
+# ::::::::::::::::::::::::::::::ooP'.::::::::::::::::::
+# ::::::::::::::::::::::::::::::...::::::::::::::::::::
+# -----------------------------------------------------
+
+[config]
+version_check = false
+
+[templates.waybar]
+input_path = '~/.config/matugen/templates/colors.css'
+output_path = '~/.config/waybar/styles/colors.css'
