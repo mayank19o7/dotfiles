@@ -34,6 +34,11 @@
 		"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
 		"on-click-right": "pavucontrol -t 3",
 		"scroll-step": 5,
+		"states": {
+			"critical": 100,
+			"warning": 65,
+			"good": 55
+		},
 		"tooltip-format": "Output device: <b>{desc}</b>"
 	},
 	"pulseaudio#microphone": {

@@ -1,0 +1,163 @@
+/*************************************************
+ * Dividers
+ *************************************************/
+#custom-left_div.one,
+#custom-right_div.one {
+	color: @surface_container;
+}
+
+#custom-left_div.two,
+#custom-right_div.two {
+	background-color: @surface_container;
+	color: @surface_container_high;
+}
+
+#custom-left_div.three,
+#custom-right_div.three {
+	background-color: @surface_container_high;
+	color: @surface_container_highest;
+}
+
+#custom-left_inv,
+#custom-right_inv {
+	color: @surface_container_highest;
+}
+
+#custom-space {
+	background-color: @surface_container;
+}
+
+
+/*************************************************
+ * User / Identity
+ *************************************************/
+#custom-icon,
+#custom-user {
+	background-color: @surface_container;
+	color: @primary;
+}
+
+
+/*************************************************
+ * Window title
+ *************************************************/
+#window {
+	margin-left: 10px;
+}
+
+
+/*************************************************
+ * System monitors / network tray
+ *************************************************/
+#temperature,
+#network,
+#bluetooth {
+	background-color: @surface_container;
+}
+
+#cpu,
+#memory {
+	background-color: @surface_container_high;
+}
+
+
+/*************************************************
+ * Clock
+ *************************************************/
+#clock.date,
+#clock.time {
+	background-color: @surface_container_highest;
+}
+
+
+/*************************************************
+ * Workspaces
+ *************************************************/
+#workspaces #custom-left_div.one,
+#workspaces #custom-right_div.one {
+	background-color: @surface_container_highest;
+	color: @inverse_primary;
+}
+
+#workspaces #custom-left_inv,
+#workspaces #custom-right_inv {
+	color: @inverse_primary;
+}
+
+#custom-activeworkspace {
+	border-radius: 16px;
+	padding: 0 6px;
+	background: linear-gradient(145deg,
+			alpha(@primary, 0.5),
+			alpha(@inverse_primary, 0.5));
+
+}
+
+#workspaces button.active label,
+#workspaces button.focused label {
+	color: @primary;
+}
+
+
+/*************************************************
+ * Media
+ *************************************************/
+#custom-media {
+	margin-right: 10px;
+}
+
+
+/*************************************************
+ * Updates
+ *************************************************/
+#custom-system-update {
+	background-color: @surface_container;
+	border-radius: 16px;
+	padding: 0 10px;
+}
+
+
+/*************************************************
+ * Audio / Brightness
+ *************************************************/
+#audiocontrol {
+	background-color: @surface_container;
+}
+
+#backlight {
+	background-color: @surface_container_high;
+}
+
+
+/*************************************************
+ * Battery
+ *************************************************/
+#battery {
+	background-color: @surface_container_highest;
+}
+
+
+/*************************************************
+ * Power menu
+ *************************************************/
+#power {
+	background-color: @surface_container;
+	border-radius: 16px;
+}
+
+#custom-reboot,
+#custom-power {
+	padding-left: 4px;
+}
+
+#custom-power {
+	padding-right: 6px;
+}
+
+#custom-reboot:hover {
+	color: @tertiary;
+}
+
+#custom-power:hover {
+	color: @error;
+}
