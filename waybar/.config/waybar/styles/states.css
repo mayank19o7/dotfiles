@@ -1,0 +1,79 @@
+@define-color state-hover alpha(@primary, 0.6);
+@define-color state-disabled alpha(@outline, 0.6);
+@define-color state-warning #DEA145;
+@define-color state-critical #F7768E;
+@define-color state-good #45DE8A;
+
+
+/*************************************************
+ * Hover states
+ *************************************************/
+#backlight:hover,
+#battery:hover,
+#bluetooth:hover,
+#clock:hover,
+#cpu:hover,
+#custom-media:hover,
+#custom-system-update:hover,
+#memory:hover,
+#network:hover,
+#pulseaudio:hover,
+#temperature:hover {
+	color: @state-hover;
+}
+
+
+/*************************************************
+ * Disabled states
+ *************************************************/
+#bluetooth.off,
+#network.disabled,
+#pulseaudio.muted,
+#pulseaudio.source-muted {
+	color: @state-disabled;
+}
+
+/*************************************************
+ * Warning states
+ *************************************************/
+#pulseaudio.warning,
+#backlight.warning,
+#battery.warning,
+#cpu.warning,
+#memory.warning,
+#temperature.warning {
+	color: @state-warning;
+}
+
+
+/*************************************************
+ * Critical states
+ *************************************************/
+#pulseaudio.critical,
+#backlight.critical,
+#battery.critical,
+#cpu.critical,
+#memory.critical,
+#temperature.critical {
+	color: @state-critical;
+}
+
+
+/*************************************************
+ * Positive states
+ *************************************************/
+#battery.good,
+#battery.charging {
+	color: @state-good;
+}
+
+@keyframes blink {
+	to {
+		color: @state-critical;
+	}
+}
+
+#battery.critical:not(.charging) {
+	color: @on_error_container;
+	animation: blink 0.6s steps(12) infinite alternate;
+}
