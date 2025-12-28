@@ -14,7 +14,7 @@
 		],
 		"min-length": 3,
 		"max-length": 3,
-		"on-click": "nmcli radio wifi off && notify-send 'Wi-Fi Disabled' -i 'network-wireless-off' -r 1125",
+		"on-click": "sh -c 'if nmcli radio wifi | grep -q enabled; then nmcli radio wifi off && notify-send \"Wi-Fi Disabled\" -i network-wireless-off; else nmcli radio wifi on && notify-send \"Wi-Fi Enabled\" -i network-wireless; fi'",
 		"on-click-right": "kitty --title \"network-selector\" -e ~/.config/waybar/scripts/network",
 		"tooltip-format-disconnected": "Wi-Fi Disconnected",
 		"tooltip-format-disabled": "Wi-Fi Disabled",
