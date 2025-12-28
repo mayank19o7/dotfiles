@@ -38,7 +38,8 @@ shorten() {
 pango_escape() {
     sed -e 's/&/\&amp;/g' \
         -e 's/</\&lt;/g' \
-        -e 's/>/\&gt;/g'
+        -e 's/>/\&gt;/g' \
+		-e 's/"/\\"/g'
 }
 
 # ----------------------------------------
@@ -46,7 +47,6 @@ pango_escape() {
 # ----------------------------------------
 status=$(playerctl status 2>/dev/null) || exit 0
 [[ "$status" == "Stopped" ]] && exit 0
-
 
 # ----------------------------------------
 # Metadata
