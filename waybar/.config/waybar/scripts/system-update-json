@@ -17,6 +17,19 @@
 MAX_NAME_LENGTH=22
 MAX_VER_LENGTH=18
 
+CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/waybar-system-update.json"
+TTL=3600   # 1 hour
+NOW=$(date +%s)
+
+# Serve cached output if still valid
+if [[ -f "$CACHE" ]]; then
+	LAST=$(stat -c %Y "$CACHE")
+	if (( NOW - LAST < TTL )); then
+		cat "$CACHE"
+		exit 0
+	fi
+fi
+
 # ----------------------------------------
 # Utility: truncate long text with ellipsis
 # ----------------------------------------
@@ -29,7 +42,7 @@ shorten() {
 # Fetch updates
 # ----------------------------------------
 pac_updates=$(checkupdates 2>/dev/null)
-aur_updates=$(paru -Qua 2>/dev/null)
+aur_updates=$(paru -Qua --nodevel 2>/dev/null || true)
 
 # ----------------------------------------
 # Format a single table row
@@ -86,7 +99,7 @@ pkg_label=$(printf "%-*s" "$MAX_NAME_LENGTH" "Pkg Name")
 prev_label=$(printf "%-*s" "$MAX_VER_LENGTH" "Prev Version")
 next_label=$(printf "%-*s" "$MAX_VER_LENGTH" "Next Version")
 
-header="<span foreground='#eed49f'><big></big> ${count}</span> <b>Updates Available</b>\n\n"
+header="<span weight='bold' alpha='80%'><big>${count} 󰏗 </big></span>Update(s) Available\n\n"
 header+="<b>${pkg_label}  ${prev_label}  ${next_label}</b>\n"
 
 # underline length = sum of 3 columns + spacing
@@ -98,4 +111,5 @@ tooltip="${header}${full_table}"
 
 escaped_tooltip=$(printf "%s" "$tooltip" | sed ':a;N;$!ba;s/\n/\\n/g')
 
-printf '{"text":"󰚰 %s", "tooltip":"%s"}' "$count" "$escaped_tooltip"
+json=$(printf '{"text":"󰚰 %s", "tooltip":"%s"}' "$count" "$escaped_tooltip")
+echo "$json" | tee "$CACHE"
