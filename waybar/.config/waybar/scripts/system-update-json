@@ -11,24 +11,12 @@
 # :::::::::ooP'.::::::::::::::::::::::::::::::::::::::::8 :::::::::::::::::::::::::::::::
 # :::::::::...::::::::::::::::::::::::::::::::::::::::::..:::::::::::::::::::::::::::::::
 
+
 # ----------------------------------------
 # Config
 # ----------------------------------------
 MAX_NAME_LENGTH=22
 MAX_VER_LENGTH=18
-
-CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/waybar-system-update.json"
-TTL=3600   # 1 hour
-NOW=$(date +%s)
-
-# Serve cached output if still valid
-if [[ -f "$CACHE" ]]; then
-	LAST=$(stat -c %Y "$CACHE")
-	if (( NOW - LAST < TTL )); then
-		cat "$CACHE"
-		exit 0
-	fi
-fi
 
 # ----------------------------------------
 # Utility: truncate long text with ellipsis
@@ -111,5 +99,4 @@ tooltip="${header}${full_table}"
 
 escaped_tooltip=$(printf "%s" "$tooltip" | sed ':a;N;$!ba;s/\n/\\n/g')
 
-json=$(printf '{"text":"󰚰 %s", "tooltip":"%s"}' "$count" "$escaped_tooltip")
-echo "$json" | tee "$CACHE"
+printf '{"text":"󰚰 %s", "tooltip":"%s"}' "$count" "$escaped_tooltip"
