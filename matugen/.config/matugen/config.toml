@@ -26,3 +26,7 @@ output_path = '~/.config/btop/themes/matugen.theme'
 input_path = '~/.config/matugen/templates/cava-colors.ini'
 output_path = '~/.config/cava/themes/matugen'
 post_hook = "if pgrep -x cava >/dev/null; then pkill -USR2 cava; fi"
+
+[templates.fuzzel]
+input_path = '~/.config/matugen/templates/fuzzel.ini'
+output_path = '~/.config/fuzzel/themes/matugen.ini'
