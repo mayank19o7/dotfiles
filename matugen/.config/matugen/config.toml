@@ -30,3 +30,8 @@ post_hook = "if pgrep -x cava >/dev/null; then pkill -USR2 cava; fi"
 [templates.fuzzel]
 input_path = '~/.config/matugen/templates/fuzzel.ini'
 output_path = '~/.config/fuzzel/themes/matugen.ini'
+
+[templates.hyprland]
+input_path = '~/.config/matugen/templates/hyprland-colors.conf'
+output_path = '~/.config/hypr/matugen.conf'
+post_hook = 'if pgrep -x hyprland;then hyprctl reload;fi'
