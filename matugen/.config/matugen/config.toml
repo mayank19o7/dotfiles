@@ -21,3 +21,8 @@ output_path = '~/.config/waybar/styles/matugen.css'
 [templates.btop]
 input_path = '~/.config/matugen/templates/btop.theme'
 output_path = '~/.config/btop/themes/matugen.theme'
+
+[templates.cava]
+input_path = '~/.config/matugen/templates/cava-colors.ini'
+output_path = '~/.config/cava/themes/matugen'
+post_hook = "if pgrep -x cava >/dev/null; then pkill -USR2 cava; fi"
