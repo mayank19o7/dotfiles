@@ -1,2 +1,7 @@
 # Ignore micro buffers directory
 micro/.config/micro/buffers
+# Ignore matugen color files
+waybar/.config/waybar/styles/matugen.css
+btop/.config/btop/themes/matugen.theme
+cava/.config/cava/themes/matugen
+
