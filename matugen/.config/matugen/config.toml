@@ -37,6 +37,10 @@ post_hook = "pkill dunst && dunst &"
 input_path = '~/.config/matugen/templates/fuzzel.ini'
 output_path = '~/.config/fuzzel/themes/matugen.ini'
 
+[templates.lazygit]
+input_path = '~/.config/matugen/templates/lazygit-config.yml'
+output_path = '~/.config/lazygit/config.yml'
+
 [templates.hyprland]
 input_path = '~/.config/matugen/templates/hyprland-colors.conf'
 output_path = '~/.config/hypr/matugen.conf'
