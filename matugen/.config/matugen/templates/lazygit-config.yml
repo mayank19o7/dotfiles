@@ -19,24 +19,24 @@ git:
 gui:
   nerdFontsVersion: "3"
   authorColors:
-    '*': '#0274a9'
+    '*': '{{colors.source_color.default.hex}}'
   theme:
     activeBorderColor:
-      - '#8ccdff'
+      - '{{colors.primary.default.hex}}'
       - bold
     inactiveBorderColor:
-      - '#6d757d'
+      - '{{colors.outline_variant.default.hex}}'
     searchingActiveBorderColor:
-      - '#ebb2ff'
+      - '{{colors.tertiary.default.hex}}'
     optionsTextColor:
-      - '#adcae3'
+      - '{{colors.secondary.default.hex}}'
     selectedLineBgColor:
-      - '#373a3e'
+      - '{{colors.surface_container_highest.default.hex}}'
     cherryPickedCommitFgColor:
-      - '#8ccdff'
+      - '{{colors.primary.default.hex}}'
     cherryPickedCommitBgColor:
       - 'bg'
     unstagedChangesColor:
-      - '#ffb4ab'
+      - '{{colors.error.default.hex}}'
     defaultFgColor:
-      - '#bfc7d0'
+      - '{{colors.on_surface_variant.default.hex}}'
