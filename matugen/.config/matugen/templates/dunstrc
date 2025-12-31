@@ -121,7 +121,7 @@
     frame_width = 2
 
     # Defines color of the frame around the notification window.
-    frame_color = "#498072"
+    frame_color = "{{colors.primary_container.default.hex}}"
 
     # Size of gap to display between notifications - requires a compositor.
     # If value is greater than 0, separator_height will be ignored and a border
@@ -353,20 +353,20 @@
 # IMPORTANT: colors have to be defined in quotation marks.
 # Otherwise the "#" and following would be interpreted as a comment.
 [urgency_low]
-	background = "#111413b3"
-	foreground = "#bfc9c4"
+	background = "{{colors.surface.default.hex}}b3"
+	foreground = "{{colors.on_surface_variant.default.hex}}"
     timeout = 10
 
 [urgency_normal]
-	background = "#111413b3"
-	foreground = "#99d2c2"
+	background = "{{colors.surface.default.hex}}b3"
+	foreground = "{{colors.primary.default.hex}}"
     timeout = 10
     override_pause_level = 30
 
 [urgency_critical]
-	background = "#4b0002b3"
-	foreground = "#ffb4ab"
-	frame_color = "#da342e"
+	background = "{{colors.on_error.default.hex}}b3"
+	foreground = "{{colors.error.default.hex}}"
+	frame_color = "{{colors.error_container.default.hex}}"
     timeout = 0
     override_pause_level = 60
 	default_icon = dialog-error
