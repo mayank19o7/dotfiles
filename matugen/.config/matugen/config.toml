@@ -45,3 +45,8 @@ output_path = '~/.config/lazygit/config.yml'
 input_path = '~/.config/matugen/templates/hyprland-colors.conf'
 output_path = '~/.config/hypr/matugen.conf'
 post_hook = 'if pgrep -x hyprland;then hyprctl reload;fi'
+
+[templates.kitty]
+input_path = '~/.config/matugen/templates/kitty-colors.conf'
+output_path = '~/.config/kitty/themes/matugen.conf'
+post_hook = "kitty +kitten themes --reload-in=all matugen"

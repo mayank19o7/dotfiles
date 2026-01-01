@@ -26,8 +26,7 @@
 			"width": 21
 		},
 		"color": {
-			"keys": "#82DCCC",
-			"brightColor": true
+			"keys": "green"
 		}
 	},
 	"modules": [
