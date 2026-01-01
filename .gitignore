@@ -4,7 +4,7 @@ micro/.config/micro/buffers
 waybar/.config/waybar/styles/matugen.css
 btop/.config/btop/themes/matugen.theme
 cava/.config/cava/themes/matugen
-fuzzel/.config/fuzzels/matugen.ini
+fuzzel/.config/fuzzel/themes/matugen.ini
 hypr/.config/hypr/matugen.conf
 kitty/.config/kitty/themes/matugen.conf
 kitty/.config/kitty/current-theme.conf
