@@ -9,3 +9,4 @@ hypr/.config/hypr/matugen.conf
 kitty/.config/kitty/themes/matugen.conf
 kitty/.config/kitty/current-theme.conf
 kitty/.config/kitty/*.bak
+yazi/.config/yazi/flavors/matugen.yazi/*.toml
