@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>name</key>
+		<string>Vague Colorscheme</string>
+		<key>author</key>
+		<string>Generated from DEFAULT_SETTINGS</string>
+		<key>settings</key>
+		<array>
+
+			<!-- Global editor colors -->
+			<dict>
+				<key>settings</key>
+				<dict>
+					<key>background</key>
+					<string>#141415</string>
+					<key>foreground</key>
+					<string>#cdcdcd</string>
+					<key>caret</key>
+					<string>#7fa563</string> <!-- plus -->
+					<key>invisibles</key>
+					<string>#252530</string> <!-- line -->
+					<key>lineHighlight</key>
+					<string>#1c1c24</string> <!-- inactiveBg -->
+					<key>selection</key>
+					<string>#333738</string> <!-- visual -->
+				</dict>
+			</dict>
+
+			<!-- Comments -->
+			<dict>
+				<key>name</key>
+				<string>Comment</string>
+				<key>scope</key>
+				<string>comment, punctuation.definition.comment</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#606079</string>
+					<key>fontStyle</key>
+					<string>italic</string>
+				</dict>
+			</dict>
+
+			<!-- Strings -->
+			<dict>
+				<key>name</key>
+				<string>String</string>
+				<key>scope</key>
+				<string>string, constant.other.symbol</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#e8b589</string>
+					<key>fontStyle</key>
+					<string>italic</string>
+				</dict>
+			</dict>
+
+			<!-- Numbers -->
+			<dict>
+				<key>name</key>
+				<string>Number</string>
+				<key>scope</key>
+				<string>constant.numeric, constant.numeric.integer, constant.numeric.float</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#e0a363</string>
+				</dict>
+			</dict>
+
+			<!-- Functions / function names -->
+			<dict>
+				<key>name</key>
+				<string>Function name</string>
+				<key>scope</key>
+				<string>entity.name.function, support.function, meta.function-call</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#c48282</string>
+				</dict>
+			</dict>
+
+			<!-- Variables / parameters -->
+			<dict>
+				<key>name</key>
+				<string>Variable / Parameter</string>
+				<key>scope</key>
+				<string>variable, variable.parameter, identifier</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#bb9dbd</string> <!-- parameter -->
+				</dict>
+			</dict>
+
+			<!-- Keywords -->
+			<dict>
+				<key>name</key>
+				<string>Keyword</string>
+				<key>scope</key>
+				<string>keyword, storage.type.function</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#6e94b2</string>
+				</dict>
+			</dict>
+
+			<!-- keyword: return (italic as configured) -->
+			<dict>
+				<key>name</key>
+				<string>Keyword: return</string>
+				<key>scope</key>
+				<string>keyword.control.return, keyword.control.flow.return</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#6e94b2</string>
+					<key>fontStyle</key>
+					<string>italic</string>
+				</dict>
+			</dict>
+
+			<!-- Operators -->
+			<dict>
+				<key>name</key>
+				<string>Operator / Punctuation</string>
+				<key>scope</key>
+				<string>keyword.operator, keyword.operator.assignment, punctuation.separator,
+					punctuation.definition, punctuation.terminator</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#90a0b5</string>
+				</dict>
+			</dict>
+
+			<!-- Builtins / constants -->
+			<dict>
+				<key>name</key>
+				<string>Builtins Constants</string>
+				<key>scope</key>
+				<string>constant.language, support.constant, variable.language, constant.other</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#b4d4cf</string>
+					<key>fontStyle</key>
+					<string>bold</string>
+				</dict>
+			</dict>
+
+			<!-- Types -->
+			<dict>
+				<key>name</key>
+				<string>Types</string>
+				<key>scope</key>
+				<string>storage.type, support.type, entity.name.type, storage.type.annotation</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#9bb4bc</string>
+					<key>fontStyle</key>
+					<string>bold</string>
+				</dict>
+			</dict>
+
+			<!-- Constants (distinct from builtins sometimes) -->
+			<dict>
+				<key>name</key>
+				<string>Constants</string>
+				<key>scope</key>
+				<string>constant, constant.other, constant.character</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#aeaed1</string>
+				</dict>
+			</dict>
+
+			<!-- Properties / object keys -->
+			<dict>
+				<key>name</key>
+				<string>Property / Field</string>
+				<key>scope</key>
+				<string>meta.property-name, variable.other.property, support.property</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#c3c3d5</string>
+				</dict>
+			</dict>
+
+			<!-- Errors / invalid -->
+			<dict>
+				<key>name</key>
+				<string>Error / Invalid</string>
+				<key>scope</key>
+				<string>invalid, invalid.deprecated, markup.error</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#d8647e</string>
+					<key>fontStyle</key>
+					<string>bold</string>
+				</dict>
+			</dict>
+
+			<!-- Warning (approximate scope) -->
+			<dict>
+				<key>name</key>
+				<string>Warning</string>
+				<key>scope</key>
+				<string>markup.warning, constant.other.warning</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#f3be7c</string>
+				</dict>
+			</dict>
+
+			<!-- Hint / Info -->
+			<dict>
+				<key>name</key>
+				<string>Hint / Info</string>
+				<key>scope</key>
+				<string>markup.info, comment.documentation, markup.changed</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#7e98e8</string>
+				</dict>
+			</dict>
+
+			<!-- Search highlight (used by some editors) -->
+			<dict>
+				<key>name</key>
+				<string>Search Highlight</string>
+				<key>scope</key>
+				<string>markup.highlight, findHighlight, search</string>
+				<key>settings</key>
+				<dict>
+					<key>background</key>
+					<string>#405065</string>
+					<key>foreground</key>
+					<string>#cdcdcd</string>
+				</dict>
+			</dict>
+
+			<!-- Visual selection (secondary) -->
+			<dict>
+				<key>name</key>
+				<string>Selection (Visual)</string>
+				<key>scope</key>
+				<string>selection, markup.selection</string>
+				<key>settings</key>
+				<dict>
+					<key>background</key>
+					<string>#333738</string>
+				</dict>
+			</dict>
+
+			<!-- Line number / guide -->
+			<dict>
+				<key>name</key>
+				<string>Line / Guide</string>
+				<key>scope</key>
+				<string>meta.line-number, meta.guide, meta.fold</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#252530</string>
+				</dict>
+			</dict>
+
+			<!-- Operators / punctuation fallback -->
+			<dict>
+				<key>name</key>
+				<string>Fallback punctuation</string>
+				<key>scope</key>
+				<string>punctuation, meta.brace, meta.delimiter, punctuation.definition.string</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#90a0b5</string>
+				</dict>
+			</dict>
+
+		</array>
+
+		<!-- Optional metadata -->
+		<key>uuid</key>
+		<string>vague-colorscheme-0001</string>
+	</dict>
+</plist>
