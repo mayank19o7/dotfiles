@@ -28,17 +28,17 @@
     file-modified-label = [*]
     file-removed-label = [-]
     file-renamed-label = [->]
-    file-style = "#E6C384" bold
+    file-style = magenta bold
 	# Hunk header
     hunk-header-style = omit
     keep-plus-minus-markers = false
 	# Line numbers
     line-numbers = true
-	line-numbers-left-style = brightred
-    line-numbers-minus-style = brightred italic
-    line-numbers-plus-style = brightgreen italic
-    line-numbers-right-style = brightgreen
-    line-numbers-zero-style = "#4C566A" italic
+	line-numbers-left-style = red
+    line-numbers-minus-style = red italic
+    line-numbers-plus-style = lightgreen italic
+    line-numbers-right-style = lightgreen
+    line-numbers-zero-style = brightgreen italic
 	# Merge conflicts
     merge-conflict-begin-symbol = ~
     merge-conflict-end-symbol = ~
@@ -49,10 +49,10 @@
 	# Diff contents
     minus-emph-style = black red
     minus-non-emph-style = bold
-    minus-style = brightred
-    plus-emph-style = black green
+    minus-style = red
+    plus-emph-style = black lightgreen
     plus-non-emph-style = bold
-    plus-style = brightgreen
+    plus-style = lightgreen
     side-by-side = false
     syntax-theme = Vague
 	tabs = 4
