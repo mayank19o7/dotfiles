@@ -1,67 +1,88 @@
--- --------------------------------------------------------
--- General
--- --------------------------------------------------------
+-- =====================================================
+-- Options
+-- =====================================================
+
 local opt = vim.opt
 
--- Set leader key to space
-vim.g.mapleader = " "
+-- -----------------------------------------------------
+-- UI
+-- -----------------------------------------------------
+opt.winborder = "rounded" -- Global floating window border
+opt.number = true -- Absolute line numbers
+opt.relativenumber = true -- Relative line numbers
+opt.cursorline = true -- Highlight current line
+opt.showmode = false -- Mode shown in status line instead
+opt.linebreak = true -- Wrap lines at word boundaries
+opt.list = true -- Show invisible characters
+opt.listchars = {
+	tab = "» ",
+	trail = "·",
+	nbsp = "␣",
+}
 
--- Number of spaces a tab represents
+-- -----------------------------------------------------
+-- Mouse & Clipboard
+-- -----------------------------------------------------
+opt.mouse = "a" -- Enable mouse support
+opt.clipboard:append("unnamedplus") -- Use system clipboard
+
+-- -----------------------------------------------------
+-- Indentation & Tabs
+-- -----------------------------------------------------
+opt.autoindent = true
+opt.smartindent = true
+opt.breakindent = true
+opt.shiftwidth = 4
 opt.tabstop = 4
 opt.softtabstop = 4
 
--- Indentation
-opt.shiftwidth = 4
-opt.autoindent = true
-opt.smartindent = true
-
--- Disable wrap
-opt.wrap = false
-
--- Use system clipboard as default register
-opt.clipboard:append("unnamedplus")
-
--- Turn off swapfile
-opt.swapfile = false
-
--- --------------------------------------------------------
+-- -----------------------------------------------------
 -- Search
--- --------------------------------------------------------
+-- -----------------------------------------------------
+opt.ignorecase = true -- Case-insensitive search
+opt.smartcase = true -- Override ignore case if uppercase used
 
--- Ignore case for search
-opt.ignorecase = true
-opt.smartcase = true
+-- -----------------------------------------------------
+-- Splits & Window Behavior
+-- -----------------------------------------------------
+opt.splitright = true -- Vertical splits open to the right
+opt.splitbelow = true -- Horizontal splits open below
+opt.inccommand = "split" -- Live preview for substitutions
+opt.confirm = true -- Confirm before closing unsaved buffers
 
--- --------------------------------------------------------
--- UI
--- --------------------------------------------------------
+-- -----------------------------------------------------
+-- Files & Undo
+-- -----------------------------------------------------
+opt.undofile = true -- Persistent undo history
+opt.spell = true -- Enable spell checking
 
--- Sets a global border style for all floating windows
-opt.winborder = "rounded"
+-- -----------------------------------------------------
+-- Auto commands
+-- -----------------------------------------------------
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+})
 
--- Enable line numbers
-opt.number = true
-
--- Enable relative line numbers
-opt.relativenumber = true
-
--- Enable cursor line highlight
-opt.cursorline = true
-
--- Enable 24-bit color
-opt.termguicolors = true
-
+-- -----------------------------------------------------
 -- Diagnostics
-local severity = vim.diagnostic.severity
+-- -----------------------------------------------------
+local diagnostic = vim.diagnostic
 
-vim.diagnostic.config({
+diagnostic.config({
+	severity_sort = true,
 	virtual_text = true,
+	float = {
+		border = "rounded",
+		source = "if_many",
+	},
 	signs = {
 		text = {
-			[severity.ERROR] = " ",
-			[severity.WARN] = " ",
-			[severity.HINT] = "󰠠 ",
-			[severity.INFO] = " ",
+			[diagnostic.severity.ERROR] = "󰅚 ",
+			[diagnostic.severity.WARN] = "󰀪 ",
+			[diagnostic.severity.INFO] = "󰋽 ",
+			[diagnostic.severity.HINT] = "󰌶 ",
 		},
 	},
 })
