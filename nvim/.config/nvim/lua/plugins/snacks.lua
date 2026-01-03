@@ -1,7 +1,8 @@
 return {
 	"folke/snacks.nvim",
 	dependencies = {
-		"echasnovski/mini.icons",
+		"nvim-mini/mini.icons",
+		"nvim-tree/nvim-web-devicons"
 	},
 	priority = 1000,
 	lazy = false,
@@ -19,13 +20,15 @@ return {
     █████████ ██████████ █████████ █████ █████ ████ █████   
   ███████████ ███    ███ █████████ █████ █████ ████ █████  
  ██████  █████████████████████ ████ █████ █████ ████ ██████ 
-        ]],
+		]],
 			},
 		},
+		explorer = { enabled = true },
+		image = { enabled = true },
 		indent = { enabled = true },
 		input = { enabled = true },
-		git = { enabled = true },
-		-- show hidden and ignored files on explorer and picker
+		lazygit = { enabled = true },
+		notifier = { enabled = true },
 		picker = {
 			enabled = true,
 			hidden = true,
@@ -37,10 +40,11 @@ return {
 				}
 			}
 		},
-		notifier = { enabled = true },
-		quickfile = { enabled = true },
+	    quickfile = { enabled = true },
 		scroll = { enabled = false },
+		scratch = { enabled = true },
 		statuscolumn = { enabled = true },
+		terminal = { enabled = true },
 		words = { enabled = true },
 	},
 }
