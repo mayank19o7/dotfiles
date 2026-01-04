@@ -55,6 +55,8 @@ opt.confirm = true -- Confirm before closing unsaved buffers
 -- -----------------------------------------------------
 opt.undofile = true -- Persistent undo history
 opt.spell = true -- Enable spell checking
+opt.spelllang = { "en_us" }
+opt.spellsuggest = { "best", 6 }
 
 -- -----------------------------------------------------
 -- Auto commands
