@@ -16,6 +16,11 @@ map("n", "<C-h>", "<C-w><C-h>", { desc = "Move to left window" })
 map("n", "<C-l>", "<C-w><C-l>", { desc = "Move to right window" })
 map("n", "<C-j>", "<C-w><C-j>", { desc = "Move to lower window" })
 map("n", "<C-k>", "<C-w><C-k>", { desc = "Move to upper window" })
+-- Move lines
+map("n", "<A-j>", ":m .+1<CR>==", { silent = true })
+map("n", "<A-k>", ":m .-2<CR>==", { silent = true })
+map("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true })
+map("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true })
 -- Color schemes
 map("n", "<leader>uC", function() Snacks.picker.colorschemes() end, { desc = "Colorschemes" })
 
